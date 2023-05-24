@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e60d310d.css",
+    "main.js": "/static/js/main.9f36cc29.js",
+    "static/media/clothes.png": "/static/media/clothes.35200a9a3c1598ecc0d3.png",
+    "static/media/el-pic.jpg": "/static/media/el-pic.a43baa59fbe2f05e6a8e.jpg",
+    "static/media/je.png": "/static/media/je.7aa841d60cfdf3f80e22.png",
+    "static/media/instagram.svg": "/static/media/instagram.738f6abed3ac8794f7c17f0dc8bc960a.svg",
+    "static/media/telegram.svg": "/static/media/telegram.37aedcf4ff4ea938a8af93af207a223e.svg",
+    "static/media/productsDisplayType1.svg": "/static/media/productsDisplayType1.6cba0d2ce7e2e504536f306b8c780ef4.svg",
+    "static/media/navbarFav.svg": "/static/media/navbarFav.06eb1852d6daf98e2c55cd3900165cdb.svg",
+    "static/media/productsDisplayType2.svg": "/static/media/productsDisplayType2.51097cdd21d253efa1d3e2c631a68bd4.svg",
+    "static/media/youtube.svg": "/static/media/youtube.e41c535cc634c6692ec2e6de82a97eb8.svg",
+    "static/media/navbarCart.svg": "/static/media/navbarCart.2c29477b7883d692f82ea19362a5c636.svg",
+    "static/media/facebook.svg": "/static/media/facebook.fcdedb4fe7fbba4b3d47027486c31844.svg",
+    "static/media/chevronSideIcon.svg": "/static/media/chevronSideIcon.3f9a6e6a3562cb613752853881832223.svg",
+    "static/media/chevronDownIcon.svg": "/static/media/chevronDownIcon.e06c0b2d5a127dcc20065e95aabdde29.svg",
+    "index.html": "/index.html",
+    "static/media/navbarFind.svg": "/static/media/navbarFind.bc706595ab0341e78c013aade7f153e3.svg",
+    "static/media/line.svg": "/static/media/line.45c2de174442bb1513cdf256060da105.svg",
+    "static/media/productLine.svg": "/static/media/productLine.31032f9b5c89dcb914a469cce4cacb6e.svg",
+    "main.e60d310d.css.map": "/static/css/main.e60d310d.css.map",
+    "main.9f36cc29.js.map": "/static/js/main.9f36cc29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e60d310d.css",
+    "static/js/main.9f36cc29.js"
+  ]
+}
