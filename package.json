@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build",
-    "deploy": "gh-pages -d build"
+    "build": "npm run build --prefix frontend",
+    "start": "start-server -s ./frontend/build",
+    "postinstall": "cd frontend && npm ci"
   },
   "author": "hlynianyi",
   "license": "ISC",
