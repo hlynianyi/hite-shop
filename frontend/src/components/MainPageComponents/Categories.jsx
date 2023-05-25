@@ -11,9 +11,8 @@ const Categories = () => {
   const navigate = useNavigate();
 
   const handleCategoryClick = (category) => {
-    console.log('selected :>> ', category);
     dispatch(actions.setSelectedCategory(category));
-    navigate('/shop'); // переход на страницу магазина
+    navigate('/shop');
   };
 
   return(

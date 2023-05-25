@@ -9,11 +9,8 @@ import { ReactComponent as ChevronSideIcon } from '../../assets/chevronSideIcon.
 import { ReactComponent as ChevronDownIcon } from '../../assets/chevronDownIcon.svg';
 
 const ProductContainer = () => {
-  // const dispatch = useDispatch();
-  // const filteredProducts = useSelector(selectors.selectFilteredProducts);
   const dispatch = useDispatch();
-  const selectedCategory = useSelector(state => state.categories.selectedCategory); // получить выбранную категорию
-  console.log('selectedCategory :>> ', selectedCategory);
+  const selectedCategory = useSelector(state => state.categories.selectedCategory);
 
   const allProducts = useSelector(selectors.selectFilteredProducts);
 
