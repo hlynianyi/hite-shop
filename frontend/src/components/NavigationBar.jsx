@@ -4,15 +4,12 @@ import { ReactComponent as CartIcon } from '../assets/navbarCart.svg';
 import { ReactComponent as FavIcon } from '../assets/navbarFav.svg';
 import { useDispatch } from 'react-redux';
 import { actions } from '../slices/categoriesSlice';
-import { useNavigate } from 'react-router-dom';
 
 const NavigationBar = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleShopClick = () => {
     dispatch(actions.setSelectedCategory(null));
-    navigate('/shop');
   }
 
   return (

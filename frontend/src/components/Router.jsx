@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter, Route, Routes, Navigate, Outlet,
+  BrowserRouter, Route, Routes
 } from 'react-router-dom';
 import NavigationBar from './NavigationBar.jsx';
 import AboutPage from './AboutPage.jsx';
