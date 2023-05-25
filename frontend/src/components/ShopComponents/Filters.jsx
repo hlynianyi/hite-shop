@@ -12,7 +12,6 @@ const Filters = (props) => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
 
-
   const dispatch = useDispatch();
 
   const [filter, setFilter] = useState({
@@ -21,7 +20,6 @@ const Filters = (props) => {
   });
 
   const handleCategoryFilterChange = (categoryName) => {
-    console.log('categoryName :>> ', categoryName);
     setFilter(prevFilter => ({
       ...prevFilter,
       category: categoryName,

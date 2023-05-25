@@ -9,11 +9,13 @@ import Home from './MainPageComponents/Home.jsx';
 import Footer from './Footer.jsx';
 import Shop from './ShopComponents/Shop.jsx';
 import ProductPage from './ShopComponents/ProductPage.jsx';
+import ScrollToTop from './ScrollToTop.jsx';
 
 const Router = () => {
   
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <NavigationBar />
       <Routes>
         <Route path='/about' element={<AboutPage />}/>

@@ -40,7 +40,7 @@ const Footer = () => {
         <p className="pb-6">Contact me</p>
         <p>+38 (099) 707-81-64</p>
         <p>hlynianyi.vladyslav@gmail.com</p>
-        <p>hite.com</p>
+        <p>github.com/hlynianyi/hite-shop</p>
       </div>
     </div>
   )

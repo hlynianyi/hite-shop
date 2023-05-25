@@ -2,8 +2,18 @@ import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from '../assets/navbarFind.svg';
 import { ReactComponent as CartIcon } from '../assets/navbarCart.svg';
 import { ReactComponent as FavIcon } from '../assets/navbarFav.svg';
+import { useDispatch } from 'react-redux';
+import { actions } from '../slices/categoriesSlice';
+import { useNavigate } from 'react-router-dom';
 
 const NavigationBar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleShopClick = () => {
+    dispatch(actions.setSelectedCategory(null));
+    navigate('/shop');
+  }
 
   return (
     <nav className="flex justify-between px-90 py-5">
@@ -12,7 +22,7 @@ const NavigationBar = () => {
       </div>
       <div className="space-x-4 text-lg font-opensans">
         <Link className="button" to='/'>HOME</Link>
-        <Link className="button" to='/shop'>SHOP</Link>
+        <Link onClick={handleShopClick} className="button" to='/shop'>SHOP</Link>
         <Link className="button" to='/about'>ABOUT</Link>       
       </div>
       <div className="space-x-4 text-lg font-opensans">

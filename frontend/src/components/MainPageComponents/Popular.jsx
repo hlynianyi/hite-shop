@@ -17,8 +17,8 @@ const Popular = () => {
         {getPopularProducts().map((product) => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <div className='flex flex-col w-72'>
-              <div className='flex flex-grow'>
-                <img className='w-full max-h-80 object-contain' src={product.image} alt={product.title} />
+              <div className='flex flex-grow h-80'>
+                <img className='w-full h-full object-contain' src={product.image} alt={product.title} />
 
               </div>
               <p className='pt-4 font-poiret truncate'>{product.title}</p>

@@ -4,10 +4,13 @@ const categoriesAdapter = createEntityAdapter();
 
 export const categoriesSlice = createSlice({
   name: 'categories',
-  initialState: categoriesAdapter.getInitialState(),
+  initialState: categoriesAdapter.getInitialState({ selectedCategory: '' }), // добавлено начальное состояние для selectedCategory
   reducers: {
     addCategory: categoriesAdapter.addOne,
     addCategories: categoriesAdapter.addMany,
+    setSelectedCategory: (state, action) => { // добавлен новый редьюсер
+      state.selectedCategory = action.payload;
+    }
   }
 });
 

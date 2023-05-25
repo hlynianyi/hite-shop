@@ -9,23 +9,53 @@ import { ReactComponent as ChevronSideIcon } from '../../assets/chevronSideIcon.
 import { ReactComponent as ChevronDownIcon } from '../../assets/chevronDownIcon.svg';
 
 const ProductContainer = () => {
-  const dispatch = useDispatch();  // добавьте эту строку
-  const filteredProducts = useSelector(selectors.selectFilteredProducts);
+  // const dispatch = useDispatch();
+  // const filteredProducts = useSelector(selectors.selectFilteredProducts);
+  const dispatch = useDispatch();
+  const selectedCategory = useSelector(state => state.categories.selectedCategory); // получить выбранную категорию
+  console.log('selectedCategory :>> ', selectedCategory);
+
+  const allProducts = useSelector(selectors.selectFilteredProducts);
+
+  const filteredProducts = selectedCategory
+    ? allProducts.filter(p => {
+      if (selectedCategory === 'Electronics') {
+        return p.category === selectedCategory.toLowerCase();
+      }
+      if (selectedCategory === 'Jewerly') {
+        return (p.category) === 'jewelery';
+      } else {
+        return p.category === "men's clothing" || p.category === "women's clothing"
+      }
+    })
+    : allProducts;
+
   const [isTypeFilterOpen, setIsTypeFilterOpen] = useState(false);
+  const [currentSort, setCurrentSort] = useState('Popular first');
+
   const toggleTypeFilter = () => {
     setIsTypeFilterOpen(!isTypeFilterOpen);
   };
 
-  
   const handleFilterChange = (event) => {
-    console.log('event :>> ', event, event === 'popularity');
-    toggleTypeFilter()
-    return event === 'popularity'
-    ? dispatch(actions.sortFilteredProducts('popularity'))  // измените эту строку
-    : dispatch(actions.sortFilteredProducts('rating'))  // измените эту строку
+    toggleTypeFilter();
 
-  }
-  console.log('filteredProducts :>> ', filteredProducts);
+    switch (event) {
+      case ('popularity') : {
+        setCurrentSort('Popular first');
+        dispatch(actions.sortFilteredProducts('popularity'));
+        break;
+      }
+      case ('rating') : {
+        setCurrentSort('By rating')
+        dispatch(actions.sortFilteredProducts('rating'));
+        break;
+      }
+      default:
+        console.log('Error! Unknown event in handleFilterChange')
+        break;
+    };
+  };
 
   return (
     <div className='flex flex-col justify-between w-4/5 pt-10'>
@@ -33,7 +63,7 @@ const ProductContainer = () => {
         <div className='flex flex-col justify-end'>
           <div className='relative'>
             <button className='font-poiret w-250 text-lg text-start px-2 bg-customemail rounded flex justify-between items-center' onClick={toggleTypeFilter}>
-              Popular first
+              {currentSort}
               <div className='flex items-center'>
                 {isTypeFilterOpen
                   ? <ChevronDownIcon className='h-5 w-5 ml-1 ' />
