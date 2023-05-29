@@ -14,7 +14,7 @@ const SubOffer = () => {
             type="email" 
             placeholder="Email" 
           />
-          <button className="bg-customblue text-white text-2xl px-4 py-1 rounded-full font-opensans">
+          <button className="bg-customblue hover:bg-gray-400 text-white text-2xl px-4 py-1 rounded-full font-opensans">
             Subscribe
           </button>
         </div>

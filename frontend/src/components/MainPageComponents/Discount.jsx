@@ -27,7 +27,7 @@ const Discount = () => {
         <p className="pb-16 font-opensans text-lg">
           {product.description}
         </p>
-        <Link className="button rounded font-opensans text-white text-lg bg-customblue h-11 py-2 px-10 text-3xl leading-11" to={`/product/${product.id}`}>
+        <Link className="button rounded font-opensans text-white text-lg bg-customblue hover:bg-gray-400 h-11 py-2 px-10 text-3xl leading-11" to={`/product/${product.id}`}>
           More info
         </Link>
       </div>

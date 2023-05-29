@@ -5,6 +5,7 @@ import { ReactComponent as FavIcon } from '../assets/navbarFav.svg';
 import { useDispatch } from 'react-redux';
 import { actions } from '../slices/categoriesSlice';
 
+//todo: рефаткоринг лого
 const NavigationBar = () => {
   const dispatch = useDispatch();
 

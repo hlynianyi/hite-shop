@@ -5,11 +5,9 @@ import { ReactComponent as ProductLine } from '../../assets/productLine.svg';
 import { selectors } from '../../slices/productsSlice';
 
 const ProductPage = () => {
-  const { productId } = useParams(); // Получите ID продукта из URL
+  const { productId } = useParams();
   const product = useSelector((state) => selectors.selectById(state, productId));
   
-  console.log('product :>> ', product);
-
   if (!product) {
     return <div className='flex justify-center font-poiret text-4xl text-productprice'>Loading...</div>;
   }
