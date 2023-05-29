@@ -47,6 +47,7 @@ module.exports = {
         'customgray': '#F4F6FA',
         'productprice': '#6891A7',
         'producttitle': '#344854',
+        'cartContinue': '#F4F6FA',
 
       },
     },

@@ -9,12 +9,11 @@ import { actions } from "../../slices/productsSlice";
 
 const Filters = (props) => {
   const { categories } = props;
+  const dispatch = useDispatch();
   const [isPriceFilterOpen, setIsPriceFilterOpen] = useState(false);
   const [isCategoryFilterOpen, setIsCategoryFilterOpen] = useState(false);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-
-  const dispatch = useDispatch();
 
   const [filter, setFilter] = useState({
     price: { min: null, max: null },

@@ -4,7 +4,7 @@ const categoriesAdapter = createEntityAdapter();
 
 export const categoriesSlice = createSlice({
   name: 'categories',
-  initialState: categoriesAdapter.getInitialState({ selectedCategory: '' }), // добавлено начальное состояние для selectedCategory
+  initialState: categoriesAdapter.getInitialState({ selectedCategory: '' }),
   reducers: {
     addCategory: categoriesAdapter.addOne,
     addCategories: categoriesAdapter.addMany,
