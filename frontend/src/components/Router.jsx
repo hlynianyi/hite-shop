@@ -9,6 +9,7 @@ import Shop from "./ShopComponents/Shop.jsx";
 import ProductPage from "./ShopComponents/ProductPage.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
 import Cart from "./Cart.jsx";
+import Payment from "./Payment.jsx";
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:productId" element={<ProductPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </BrowserRouter>

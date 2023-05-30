@@ -12,7 +12,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [currentSum, setCurrentSum] = useState(0);
   const [quantityByProductId, setQuantityByProductId] = useState({});
-  console.log('cart :>> ', cart);
+
   useEffect(() => {
     let sum = 0;
     for (let product of cart) {
@@ -70,7 +70,7 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col px-[190px]">
-      <div className="flex justify-center pt-[64px] pb-[20px] text-[48px] leading-[56x] font-poiret">
+      <div className="flex justify-start pt-[64px] pb-[24px] text-[48px] leading-[56x] font-poiret">
         Cart
       </div>
       <div className="flex flex-col space-y-8">
@@ -117,9 +117,12 @@ const Cart = () => {
           <p className="flex justify-end font-opensans pb-[18px] text-[32px] leading-[49px]">
             К оплате: ${currentSum}
           </p>
-          <button className="py-[6px] px-[64px] border rounded-md bg-customblue hover:bg-gray-500 text-[28px] leading-[38px] font-opensans text-white">
+          <Link
+            to={'/payment'}
+            className="py-[6px] px-[64px] border rounded-md bg-customblue hover:bg-gray-500 text-[28px] leading-[38px] font-opensans text-white"
+          >
             Payment
-          </button>
+          </Link>
         </div>
       </div>
     </div>
