@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { ReactComponent as FacebookIcon } from "../assets/facebook.svg";
 import { ReactComponent as InstagramIcon } from "../assets/instagram.svg";
 import { ReactComponent as YoutubeIcon } from "../assets/youtube.svg";
 import { ReactComponent as TelegramIcon } from "../assets/telegram.svg";
 
 const Footer = () => {
+  const handleNotReadyClick = () =>
+    toast.info("This section is not completed yet.");
+
   return (
     <div className="flex justify-between py-20 px-90 bg-white text-lg">
       <div className="flex-col font-poiret">
@@ -13,16 +17,16 @@ const Footer = () => {
           Project was build by Hlynianyi Vladyslav ©
         </p>
         <div className="space-x-4 text-lg font-opensans">
-          <button className="button">
+          <button onClick={handleNotReadyClick} className="button">
             <FacebookIcon />
           </button>
-          <button className="button">
+          <button onClick={handleNotReadyClick} className="button">
             <InstagramIcon />
           </button>
-          <button className="button">
+          <button onClick={handleNotReadyClick} className="button">
             <YoutubeIcon />
           </button>
-          <button className="button">
+          <button onClick={handleNotReadyClick} className="button">
             <TelegramIcon />
           </button>
         </div>
@@ -41,13 +45,13 @@ const Footer = () => {
       </div>
       <div className="flex flex-col font-opensans">
         <p className="pb-6">Additional menu</p>
-        <Link className="button" to="/">
+        <Link className="button" onClick={handleNotReadyClick}>
           Blog
         </Link>
-        <Link className="button" to="/home">
+        <Link className="button" onClick={handleNotReadyClick}>
           Payment and Delivery
         </Link>
-        <Link className="button" to="/about">
+        <Link className="button" onClick={handleNotReadyClick}>
           Privacy Policy
         </Link>
       </div>

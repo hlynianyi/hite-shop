@@ -92,9 +92,15 @@ const Filters = (props) => {
           </div>
           <div className="flex items-center">
             {isPriceFilterOpen ? (
-              <ChevronDownIcon onClick={togglePriceFilter} className="h-5 w-5" />
+              <ChevronDownIcon
+                onClick={togglePriceFilter}
+                className="h-5 w-5"
+              />
             ) : (
-              <ChevronSideIcon onClick={togglePriceFilter} className="h-5 w-5" />
+              <ChevronSideIcon
+                onClick={togglePriceFilter}
+                className="h-5 w-5"
+              />
             )}
           </div>
         </div>
@@ -150,9 +156,15 @@ const Filters = (props) => {
           </div>
           <div className="flex items-center">
             {isCategoryFilterOpen ? (
-              <ChevronDownIcon onClick={toggleCategoryFilter} className="h-5 w-5" />
+              <ChevronDownIcon
+                onClick={toggleCategoryFilter}
+                className="h-5 w-5"
+              />
             ) : (
-              <ChevronSideIcon onClick={toggleCategoryFilter} className="h-5 w-5" />
+              <ChevronSideIcon
+                onClick={toggleCategoryFilter}
+                className="h-5 w-5"
+              />
             )}
           </div>
         </div>

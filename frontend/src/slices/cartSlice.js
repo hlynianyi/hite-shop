@@ -12,7 +12,8 @@ export const cartSlice = createSlice({
     removeFromCart: cartAdapter.removeOne,
     setSelectedCategory: (state, action) => {
       state.selectedCategory = action.payload;
-    }
+    },
+    removeAll: cartAdapter.removeAll,
   }
 });
 

@@ -1,26 +1,65 @@
-import { useSelector } from "react-redux";
-import { selectors } from "../slices/cartSlice";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { ReactComponent as AppleLogo } from "../assets/apple.svg";
 import { ReactComponent as CardIcon } from "../assets/paymentCardIcon.svg";
 import { ReactComponent as VisaIcon } from "../assets/visa.svg";
 import { ReactComponent as MastercardIcon } from "../assets/mastercard.svg";
+import { selectors } from "../slices/cartSlice";
+import { actions } from "../slices/cartSlice";
 
-const Payment = (props) => {
+// formik should be used by i am too lazy ;(
+const Payment = () => {
+  const [value, setValue] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
+  const dispatch = useDispatch();
   const cart = useSelector(selectors.selectAll);
-  let sum = 0;
-  if (cart) {
-    console.log("inside");
-    const reducer = cart.reduce((a, b) => a.price + b.price);
-    sum = reducer;
-  }
-  console.log("sum :>> ", sum);
+  const navigate = useNavigate();
 
-  function handleInput(event) {
+  let sum = 0;
+  if (cart.length !== 0) {
+    cart.forEach((product) => (sum += product.price));
+  }
+
+  const handleApplePay = () => {
+    if (cart.length !== 0) {
+      toast.success("Thank you for your order!");
+      dispatch(actions.removeAll());
+      navigate("/");
+      return;
+    }
+    toast.info("You have no products in cart :(");
+  };
+
+  const handleCardPay = () => {
+    if (cart.length !== 0) {
+      toast.success("Thank you for your order!");
+      dispatch(actions.removeAll());
+      navigate("/");
+      return;
+    }
+    toast.info("You have no products in cart :(");
+  };
+
+  const handleInput = (event) => {
     const regex = /^[a-zA-Z]*$/;
     if (!regex.test(event.target.value)) {
       event.target.value = event.target.value.replace(/[^a-zA-Z]/g, "");
     }
-  }
+  };
+
+  const handleCardInput = (event) => {
+    const value = event.target.value.replace(/\D/g, "");
+    const formatted = value.replace(/(\d{4})/g, "$1 ").trim();
+
+    if (formatted.length <= 19) {
+      setValue(formatted);
+      setIsComplete(formatted.length === 19);
+    } else {
+      setValue(formatted.slice(0, 19));
+    }
+  };
 
   return (
     <div className="pt-[54px] pr-[180px] flex space-x-8">
@@ -50,8 +89,8 @@ const Payment = (props) => {
             </div>
           </div>
         ))}
-        <div className="absolute bottom-[15px] right-[25px]">
-          <p className="flex justify-end font-opensans text-[32px] leading-[49px]">
+        <div className="absolute bottom-[15px] right-[20px]">
+          <p className="pb-[15pb] pr-[24px] flex justify-end font-opensans text-[32px] leading-[49px]">
             Total: ${sum}
           </p>
         </div>
@@ -96,7 +135,10 @@ const Payment = (props) => {
             placeholder="Flat *"
           />
         </div>
-        <button className="flex justify-center py-[15px] w-full bg-black rounded-2xl">
+        <button
+          onClick={handleApplePay}
+          className="flex justify-center py-[15px] w-full bg-black rounded-2xl"
+        >
           <AppleLogo />
         </button>
         <p className="font-opensans text-[18px] leading-[25px]">
@@ -104,13 +146,26 @@ const Payment = (props) => {
         </p>
         <div className="relative">
           <input
-            className="w-full py-[24px] px-[80px] number-input bg-gray-200 rounded-2xl"
-            type="number"
+            value={value}
+            onInput={handleCardInput}
+            className="w-full py-[24px] px-[80px] number-input bg-gray-200 rounded-2xl text-opensans text-lg"
+            type="text"
             placeholder="Payment card"
+            inputMode="numeric"
+            pattern="\d*"
           />
           <CardIcon className="absolute left-4 top-1/2 transform -translate-y-1/2" />
           <VisaIcon className="absolute right-24 top-1/2 transform -translate-y-1/2" />
           <MastercardIcon className="absolute right-8 top-1/2 transform -translate-y-1/2" />
+
+          {isComplete && (
+            <button
+              onClick={handleCardPay}
+              className="absolute right-40 top-1/2 transform -translate-y-1/2 bg-blue-700 hover:bg-green-700 text-white w-16 h-8 flex items-center justify-center rounded"
+            >
+              Submit
+            </button>
+          )}
         </div>
       </div>
     </div>

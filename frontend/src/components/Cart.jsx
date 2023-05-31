@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { actions, selectors } from "../slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as ProductLine } from "../assets/productLine.svg";
 import { ReactComponent as MinusIcon } from "../assets/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../assets/plusIcon.svg";
-
-import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { actions, selectors } from "../slices/cartSlice";
 
 const Cart = () => {
   const cart = useSelector(selectors.selectAll);
@@ -23,8 +23,8 @@ const Cart = () => {
   }, [cart, quantityByProductId]);
 
   const removeFromCart = (product) => {
-    console.log('removeID :>> ', product);
-    dispatch(actions.removeFromCart(product.id))
+    toast.success("Product removed from cart.");
+    dispatch(actions.removeFromCart(product.id));
   };
 
   const QuantityBlock = ({ product }) => {
@@ -96,7 +96,7 @@ const Cart = () => {
                 </div>
               </div>
               <button
-                onClick={(() => removeFromCart(product))}
+                onClick={() => removeFromCart(product)}
                 className="absolute top-0 right-0 text-customblue hover:text-producttitle"
               >
                 Отменить
@@ -118,7 +118,7 @@ const Cart = () => {
             К оплате: ${currentSum}
           </p>
           <Link
-            to={'/payment'}
+            to={"/payment"}
             className="py-[6px] px-[64px] border rounded-md bg-customblue hover:bg-gray-500 text-[28px] leading-[38px] font-opensans text-white"
           >
             Payment

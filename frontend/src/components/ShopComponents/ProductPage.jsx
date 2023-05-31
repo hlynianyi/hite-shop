@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import BestProducts from "../MainPageComponents/BestProducts";
 import { ReactComponent as ProductLine } from "../../assets/productLine.svg";
+import { toast } from "react-toastify";
 import { selectors } from "../../slices/productsSlice";
 import { actions as cartActions } from "../../slices/cartSlice";
 
@@ -21,7 +22,7 @@ const ProductPage = () => {
   }
 
   const addToCart = () => {
-    console.log("Added:", product);
+    toast.success('Product in the cart.');
     dispatch(cartActions.addToCart(product));
   };
 

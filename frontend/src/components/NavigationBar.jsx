@@ -1,12 +1,19 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { ReactComponent as SearchIcon } from "../assets/navbarFind.svg";
 import { ReactComponent as CartIcon } from "../assets/navbarCart.svg";
 import { ReactComponent as FavIcon } from "../assets/navbarFav.svg";
-import { useDispatch } from "react-redux";
 import { actions } from "../slices/categoriesSlice";
 
 const NavigationBar = () => {
   const dispatch = useDispatch();
+
+  const handleSearchClick = () =>
+    toast.info("This section is not completed yet.");
+
+  const handleFavoriteClick = () =>
+    toast.info("This section is not completed yet.");
 
   const handleShopClick = () => {
     dispatch(actions.setSelectedCategory(null));
@@ -31,10 +38,10 @@ const NavigationBar = () => {
         </Link>
       </div>
       <div className="flex flex-row space-x-4 text-lg font-opensans">
-        <Link className="button" to="/cart">
+        <Link className="button" onClick={handleSearchClick}>
           <SearchIcon />
         </Link>
-        <Link className="button" to="/cart">
+        <Link className="button" onClick={handleFavoriteClick}>
           <FavIcon />
         </Link>
         <Link className="button" to="/cart">
