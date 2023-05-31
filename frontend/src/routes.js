@@ -1,3 +1,7 @@
+/*
+  API not allowing to do something with database but provide some "fake" routes.
+  So in general there is only one usefull route - getProducts().
+*/
 const routes = {
   getProducts: () => 'https://fakestoreapi.com/products',
   getProductById: (id) => `https://fakestoreapi.com/products/${id}`,
