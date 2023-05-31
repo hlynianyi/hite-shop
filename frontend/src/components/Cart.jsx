@@ -12,7 +12,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [currentSum, setCurrentSum] = useState(0);
   const [quantityByProductId, setQuantityByProductId] = useState({});
-
+  console.log('cart :>> ', cart);
   useEffect(() => {
     let sum = 0;
     for (let product of cart) {
@@ -115,7 +115,7 @@ const Cart = () => {
       <div className="flex justify-end">
         <div className="flex flex-col">
           <p className="flex justify-end font-opensans pb-[18px] text-[32px] leading-[49px]">
-            К оплате: ${currentSum}
+            Total: ${currentSum}
           </p>
           <Link
             to={"/payment"}
