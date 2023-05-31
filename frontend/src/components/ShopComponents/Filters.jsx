@@ -82,9 +82,9 @@ const Filters = (props) => {
       <p className="text-32 font-poiret leading-42">Filters</p>
       <div className="flex flex-col w-full pt-24">
         <div className="flex justify-between">
-          <div className="flex">
+          <div className="flex w-full">
             <button
-              className="font-poiret text-xl leading-9 bg-transparent focus:outline-none"
+              className="flex justify-start w-full font-poiret text-xl leading-9 bg-transparent focus:outline-none"
               onClick={togglePriceFilter}
             >
               Price
@@ -92,9 +92,9 @@ const Filters = (props) => {
           </div>
           <div className="flex items-center">
             {isPriceFilterOpen ? (
-              <ChevronDownIcon className="h-5 w-5" />
+              <ChevronDownIcon onClick={togglePriceFilter} className="h-5 w-5" />
             ) : (
-              <ChevronSideIcon className="h-5 w-5" />
+              <ChevronSideIcon onClick={togglePriceFilter} className="h-5 w-5" />
             )}
           </div>
         </div>
@@ -102,7 +102,7 @@ const Filters = (props) => {
         {isPriceFilterOpen && (
           <div className="bg-white mt-6  text-opensans text-lg w-full">
             <div className="flex justify-between">
-              <div className="flex flex-col space-y-2 w-full">
+              <div className="flex w-full flex-col space-y-2 w-full">
                 <input
                   onChange={handleFilterChange}
                   value={minPrice}
@@ -140,9 +140,9 @@ const Filters = (props) => {
       </div>
       <div className="flex flex-col pt-8 w-full">
         <div className="flex justify-between">
-          <div className="flex">
+          <div className="flex w-full">
             <button
-              className="font-poiret text-xl leading-9 bg-transparent focus:outline-none"
+              className="flex justify-start w-full font-poiret text-xl leading-9 bg-transparent focus:outline-none"
               onClick={toggleCategoryFilter}
             >
               Category
@@ -150,9 +150,9 @@ const Filters = (props) => {
           </div>
           <div className="flex items-center">
             {isCategoryFilterOpen ? (
-              <ChevronDownIcon className="h-5 w-5" />
+              <ChevronDownIcon onClick={toggleCategoryFilter} className="h-5 w-5" />
             ) : (
-              <ChevronSideIcon className="h-5 w-5" />
+              <ChevronSideIcon onClick={toggleCategoryFilter} className="h-5 w-5" />
             )}
           </div>
         </div>
