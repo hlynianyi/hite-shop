@@ -6,7 +6,7 @@
 
 @media (orientation: landscape) {
   body {
-    border: 3px solid blue;
+    border: 4px solid blue;
   }
   .nav {
     padding: 0.5rem 6rem;
@@ -65,12 +65,47 @@
   .section .item > p {
     width: 290px;
   }
+  .discount {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .discount .image-container {
+    width: 40%;
+    position: relative;
+  }
+  .image-container img {
+    padding-left: 120px;
+    mix-blend-mode: multiply;
+  }
+  .image-container div {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    padding: 4px;
+    border-radius: 100px;
+    background-color: lightskyblue;
+  }
+  .discount .information-container {
+    width: 60%;
+    padding: 0 80px;
+  }
+  .information-container .product-title {
+    padding-bottom: 32px;
+    font-size: 2rem;
+  }
+  .information-container .product-description {
+    padding-bottom: 32px;
+    font-size: 1.25rem;
+  }
+
 }
 
 @media (orientation: portrait) {
   /* При вертикальной ориентации фоновым цветом сайта будет чёрный */
   body {
-    border: 3px solid orange;
+    border: 4px solid red;
 
   }
   textarea {
@@ -140,16 +175,46 @@
     height: 320px;
     object-fit: contain;
   }
-  .section .item {
-  }
   .section .item > p {
     width: 290px;
   }
-  .discountDescription {
-    max-height: 150px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  
+  .discount {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .discount .image-container {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  .image-container img {
+    width: 80%;
+    margin: auto;
+    mix-blend-mode: multiply;
+  }
+  .image-container div {
+    position: absolute;
+    top: -5px;
+    right: 2.5rem;
+    padding: 4px;
+    border-radius: 100px;
+    background-color: lightskyblue;
+  }
+  .discount .information-container {
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+  .information-container .product-title {
+    padding-top: 1.5rem;
+    padding-bottom: 1.75rem;
+    font-size: 1.25rem;
+  }
+  .information-container .product-description {
+    padding-bottom: 1.75rem;
+    font-size: 1rem;
   }
 }
 
