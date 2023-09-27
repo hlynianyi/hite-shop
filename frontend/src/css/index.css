@@ -130,6 +130,14 @@
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
   }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    font-size: 1rem;
+    background-color: white;
+  }
 }
 
 @media (orientation: portrait) {
@@ -277,6 +285,17 @@
   .subscription div > button {
     font-size: 1rem;
     padding: 0.5rem 1rem;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    font-size: 1rem;
+    background-color: white;
+  }
+  .footer-socials {
+    display: none;
   }
 }
 

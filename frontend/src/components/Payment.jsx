@@ -9,7 +9,6 @@ import { ReactComponent as MastercardIcon } from "../assets/mastercard.svg";
 import { selectors } from "../slices/cartSlice";
 import { actions } from "../slices/cartSlice";
 
-// formik should be used by i am too lazy ;(
 const Payment = () => {
   const [value, setValue] = useState("");
   const [isComplete, setIsComplete] = useState(false);

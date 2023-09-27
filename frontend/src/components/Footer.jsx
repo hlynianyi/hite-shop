@@ -10,12 +10,10 @@ const Footer = () => {
     toast.info("This section is not completed yet.");
 
   return (
-    <div className="flex justify-between py-20 px-90 bg-white text-lg">
-      <div className="flex-col font-poiret">
+    <div className="footer">
+      <div className="footer-socials flex-col font-poiret">
         <p className="pb-4 font-normal">Hite</p>
-        <p className="pb-8 w-full md:max-w-md text-lg">
-          Project was build by Hlynianyi Vladyslav ©
-        </p>
+        
         <div className="space-x-4 text-lg font-opensans">
           <button onClick={handleNotReadyClick} className="button">
             <FacebookIcon />
@@ -30,6 +28,9 @@ const Footer = () => {
             <TelegramIcon />
           </button>
         </div>
+        <p className="footer-author text-lg">
+          Project was build by Hlynianyi Vladyslav ©
+        </p>
       </div>
       <div className="flex flex-col font-opensans">
         <p className="pb-6">Menu</p>
