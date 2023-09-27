@@ -43,18 +43,7 @@ const Footer = () => {
           About
         </Link>
       </div>
-      <div className="flex flex-col font-opensans">
-        <p className="pb-6">Additional menu</p>
-        <Link className="button" onClick={handleNotReadyClick}>
-          Blog
-        </Link>
-        <Link className="button" onClick={handleNotReadyClick}>
-          Payment and Delivery
-        </Link>
-        <Link className="button" onClick={handleNotReadyClick}>
-          Privacy Policy
-        </Link>
-      </div>
+     
       <div className="flex-column font-opensans">
         <p className="pb-6">Contact me</p>
         <p>+38 (099) 707-81-64</p>

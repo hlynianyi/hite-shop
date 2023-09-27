@@ -13,7 +13,7 @@ const Discount = () => {
   const product = Object.assign({}, ...getDiscountProduct(allProducts));
 
   return (
-    <div className="pt-20 flex flex-row h-570 bg-customgray w-full m-0 p-0">
+    <div className="py-20  flex flex-row  bg-customgray w-full m-0 p-0">
       <div className='w-2/5 relative'>
         <img className='pl-32 mix-blend-multiply' src={product.image} alt={product.title} />
         <div className="absolute top-0 right-0 p-1 rounded-full bg-gray-500 text-white text-xl font-opensans">
@@ -24,7 +24,7 @@ const Discount = () => {
         <h2 className="pb-8 font-poiret text-4xl">
           {product.title}
         </h2>
-        <p className="pb-16 font-opensans text-lg">
+        <p className="discountDescription pb-16 font-opensans text-lg">
           {product.description}
         </p>
         <Link className="button rounded font-opensans text-white text-lg bg-customblue hover:bg-gray-400 h-11 py-2 px-10 text-3xl leading-11" to={`/product/${product.id}`}>

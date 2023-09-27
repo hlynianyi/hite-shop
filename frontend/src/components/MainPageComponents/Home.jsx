@@ -7,7 +7,6 @@ import BestProducts from "./BestProducts";
 import Discount from "./Discount";
 
 const Home = () => {
-
   return (
     <div className="flex flex-col justify-center">
       {/* Carrousel */}
@@ -17,7 +16,7 @@ const Home = () => {
       {/* Popular Products */}
       <Popular />
       {/* Discount price */}
-      <Discount />
+      {<Discount />}
       {/* Best Products */}
       <BestProducts />
       {/* Subscribe offer */}

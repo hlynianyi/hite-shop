@@ -16,7 +16,7 @@ const Categories = () => {
   };
 
   return(
-    <div className="flex w-full">
+    <div className="categories">
       <div className='flex w-1/2'>
         <button 
           onClick={() => handleCategoryClick('Clothes')}
