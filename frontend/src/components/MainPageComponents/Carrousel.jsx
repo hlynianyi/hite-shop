@@ -28,6 +28,7 @@ const Carrousel = () => {
   
   return (
     <Carousel
+      className="carousel"
       autoPlay
       infiniteLoop
       showStatus={false}
@@ -35,28 +36,26 @@ const Carrousel = () => {
       interval={500000}
     >
       {!randomProducts.length
-        ? Array.from({ length: 1 }).map((_, index) => (
-            <div key={index} className="px-20 pt-8 flex w-full">
-              {/* здесь может быть любая структура для скелетона, которая похожа на твои карточки продукта */}
-              <Skeleton  height={383} />
+        ? Array.from({ length: 3 }).map((_, index) => (
+            <div key={index} className="skeleton">
+              <Skeleton count={10} />
             </div>
           ))
         : randomProducts.map((product) => (
-            <div key={product.id} className="px-20 pt-8 flex w-full">
-              {/* ... оставшийся код для отображения продуктов */}
+            <div key={product.id} className="content">
               <div className="w-1/2 p-4 flex flex-col items-start">
-                <h2 className="pb-8 font-poiret text-4xl">{product.title}</h2>
+                <h2 className="pb-8 font-poiret">{product.title}</h2>
                 <ClampLines
                   text={product.description}
                   id="really-unique-id"
-                  lines={2}
+                  lines={3}
                   ellipsis="..."
                   moreText=""
                   lessText="Show less"
-                  className="pb-16 font-opensans text-xl"
+                  className="description pb-16 font-opensans"
                 />
                 <Link
-                  className="absolute bottom-8 button rounded font-opensans text-white text-lg bg-customblue hover:bg-gray-400 h-11 py-2 px-10 leading-11"
+                  className="button-info button rounded font-opensans text-white bg-customblue hover:bg-gray-400"
                   to={`/product/${product.id}`}
                 >
                   More info

@@ -20,13 +20,13 @@ const NavigationBar = () => {
   };
 
   return (
-    <nav className="flex justify-between px-90 py-5">
-      <div className="text-2xl font-poiret">
+    <nav className="nav flex justify-between px-90 py-5">
+      <div className="font-poiret">
         <Link className="button" to="/">
           HITE
         </Link>
       </div>
-      <div className="flex justify-center space-x-4 text-lg font-opensans">
+      <div className="buttons flex justify-center space-x-4 font-opensans">
         <Link className="button" to="/">
           HOME
         </Link>
