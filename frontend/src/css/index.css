@@ -6,7 +6,7 @@
 
 @media (orientation: landscape) {
   body {
-    border: 4px solid blue;
+    border: 3px solid blue;
   }
   .nav {
     padding: 0.5rem 6rem;
