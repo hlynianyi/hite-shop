@@ -138,6 +138,23 @@
     font-size: 1rem;
     background-color: white;
   }
+
+  .shop-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 2rem;
+    align-items: flex-start;
+  }
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .product-card {
+    width: 270px;
+    padding-bottom: 32px;
+  }
+
 }
 
 @media (orientation: portrait) {
@@ -296,6 +313,30 @@
   }
   .footer-socials {
     display: none;
+  }
+
+  .shop-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 2rem;
+    align-items: flex-start;
+  }
+  .filters {
+    display: none;
+  }
+
+  .display-variant {
+    display:none
+  }
+
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .product-card {
+    width: 270px;
+    padding-bottom: 32px;
   }
 }
 

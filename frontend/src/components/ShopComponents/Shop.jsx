@@ -19,7 +19,7 @@ const Shop = () => {
 
   return (
     <div>
-      <div className='flex flex-row pt-4 px-90 items-start'>
+      <div className='shop-container'>
         <Filters categories={categories}/>
         <ProductContainer  />
       </div>

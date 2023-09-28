@@ -5,8 +5,6 @@ import { ReactComponent as LineIcon } from "../../assets/line.svg";
 import { useDispatch } from "react-redux";
 import { actions } from "../../slices/productsSlice";
 
-// todo: сделать кликабельной всю зону кнопок фильтров
-
 const Filters = (props) => {
   const { categories } = props;
   const dispatch = useDispatch();
@@ -78,7 +76,7 @@ const Filters = (props) => {
   };
 
   return (
-    <div className="pr-8 flex flex-col w-1/5 pt-10">
+    <div className="filters pr-8 flex flex-col w-1/5 pt-10">
       <p className="text-32 font-poiret leading-42">Filters</p>
       <div className="flex flex-col w-full pt-24">
         <div className="flex justify-between">
@@ -108,7 +106,7 @@ const Filters = (props) => {
         {isPriceFilterOpen && (
           <div className="bg-white mt-6  text-opensans text-lg w-full">
             <div className="flex justify-between">
-              <div className="flex w-full flex-col space-y-2 w-full">
+              <div className="flex w-full flex-col space-y-2">
                 <input
                   onChange={handleFilterChange}
                   value={minPrice}

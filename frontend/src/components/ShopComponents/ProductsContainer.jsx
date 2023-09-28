@@ -61,7 +61,7 @@ const ProductContainer = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between w-4/5 pt-10">
+    <div className="flex flex-col justify-between pt-10">
       <div className="flex flex-row justify-between pb-16">
         <div className="flex flex-col justify-end">
           <div className="relative">
@@ -94,7 +94,7 @@ const ProductContainer = () => {
             )}
           </div>
         </div>
-        <div className="">
+        <div className="display-variant">
           <button className="">
             <Cards />
           </button>
@@ -103,9 +103,9 @@ const ProductContainer = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap -m-4">
+      <div className="product-container -m-4">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="w-1/4 px-4 pb-8">
+          <div key={product.id} className="product-card px-4 pb-8">
             <Link to={`/product/${product.id}`}>
               <div className="bg-white rounded shadow flex flex-col">
                 <div className="flex justify-center pt-4">
