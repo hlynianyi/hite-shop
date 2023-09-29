@@ -76,9 +76,9 @@ const Filters = (props) => {
   };
 
   return (
-    <div className="filters pr-8 flex flex-col w-1/5 pt-10">
+    <div className="filters-container">
       <p className="text-32 font-poiret leading-42">Filters</p>
-      <div className="flex flex-col w-full pt-24">
+      <div className="flex flex-col w-full pt-12">
         <div className="flex justify-between">
           <div className="flex w-full">
             <button
@@ -168,7 +168,7 @@ const Filters = (props) => {
         </div>
         <LineIcon className="w-full" />
         {isCategoryFilterOpen && (
-          <div className="flex flex-col items-start bg-white mt-4 ml-4 w-80 text-opensans text-lg">
+          <div className="flex flex-col items-start bg-white mt-4 ml-4 w-full text-opensans text-lg">
             <button
               onClick={() => handleCategoryFilterChange(null)}
               className="pb-1 text-customblue hover:text-black text-2xs font-light text-opensans"

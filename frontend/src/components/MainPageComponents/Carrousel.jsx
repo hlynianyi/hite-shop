@@ -44,7 +44,7 @@ const Carrousel = () => {
         : randomProducts.map((product) => (
             <div key={product.id} className="content">
               <div className="w-1/2 p-4 flex flex-col items-start">
-                <h2 className="pb-8 font-poiret">{product.title}</h2>
+                <h2 className="font-poiret">{product.title}</h2>
                 <ClampLines
                   text={product.description}
                   id="really-unique-id"
@@ -52,7 +52,7 @@ const Carrousel = () => {
                   ellipsis="..."
                   moreText=""
                   lessText="Show less"
-                  className="description pb-16 font-opensans"
+                  className="description font-opensans"
                 />
                 <Link
                   className="button-info button rounded font-opensans text-white bg-customblue hover:bg-gray-400"

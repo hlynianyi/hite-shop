@@ -28,7 +28,7 @@ const ProductPage = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="pt-12 pb-10 px-90 flex flex-row justify-center bg-white">
+      <div className=" pb-10 px-90 flex flex-row justify-center bg-white">
         <div className="w-1/3 relative overflow-hidden max-h-[550px]">
           <img
             className="w-full h-full object-contain"
