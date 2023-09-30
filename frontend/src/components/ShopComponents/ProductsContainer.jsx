@@ -62,7 +62,7 @@ const ProductContainer = () => {
 
   return (
     <div className="flex flex-col justify-between">
-      <div className="flex flex-row justify-between pb-16 px-4">
+      <div className="flex flex-row justify-between pb-16">
         <div className="flex flex-col justify-end">
           <div className="relative">
             <button

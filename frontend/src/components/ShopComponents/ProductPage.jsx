@@ -27,9 +27,9 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className=" pb-10 px-90 flex flex-row justify-center bg-white">
-        <div className="w-1/3 relative overflow-hidden max-h-[550px]">
+    <div>
+      <div className="productpage-container">
+        <div className="image">
           <img
             className="w-full h-full object-contain"
             src={product.image}
@@ -39,17 +39,17 @@ const ProductPage = () => {
             Rating: {product.rating.rate}
           </div>
         </div>
-        <div className="w-2/3 pl-20">
-          <h2 className="pb-4 font-poiret text-3xl text-producttitle">
+        <div className="product-details">
+          <h2 className="product-title font-poiret text-producttitle">
             {product.title}
           </h2>
-          <p className="pb-1 font-poiret text-2xl text-productprice">
+          <p className="product-price font-poiret text-productprice">
             $ {product.price}
           </p>
-          <p className="pb-8 text-productprice text-2xs">
+          <p className="product-sold text-productprice">
             Sold: {product.rating.count} pcs.
           </p>
-          <p className="w-[70%] pb-4 font-opensans text-xl text-productprice">
+          <p className="product-description text-productprice">
             {product.description}
           </p>
           <div className="pt-6 pr-6 flex flex-row justify-between items-center">

@@ -1,24 +1,24 @@
 const AboutPage = () => {
   return (
-    <div className="flex flex-col px-90">
-      <div className="flex justify-start">
-        <div className="w-1/3 pt-20">
+    <div className="aboutpage">
+      <div className="description">
+        <div className="description-title">
           <p className="text-7xl font-poiret font-normal">About the project</p>
         </div>
-        <div className="w-2/3 pt-48 pr-96">
+        <div className="description-text">
           <p className="font-opensans text-lg leading-10">
             In this web application, i've harnessed the power of some of the
             most popular JavaScript frameworks and libraries to provide a
             seamless and intuitive user experience. At the core of application,
-            i use <b>React</b>, a JavaScript library for building user
+            i used <b>React</b>, a JavaScript library for building user
             interfaces. This allows me to develop complex UIs from small,
             isolated pieces of code called "components", making our application
             both highly modular and maintainable.
           </p>
         </div>
       </div>
-      <div className="flex justify-end pt-4 pl-72">
-        <div className="w-2/3">
+      <div className="details">
+        <div className="w-2/3 details-text">
           <p className="font-opensans text-lg leading-10	">
             To manage the state of app, i use <b>Redux Toolkit</b>, a powerful
             library for efficient state management in JavaScript applications.

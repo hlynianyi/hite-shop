@@ -69,15 +69,15 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex flex-col px-[190px]">
-      <div className="flex justify-start pt-[64px] pb-[24px] text-[48px] leading-[56x] font-poiret">
+    <div className="flex flex-col px-[96px] cart-container">
+      <div className="pt-[32px] pb-[24px] text-[48px] leading-[56x] font-poiret cart-title">
         Cart
       </div>
-      <div className="flex flex-col space-y-8">
+      <div className="flex flex-col space-y-8 cart-list">
         {cart.map((product) => (
           <div key={product.id} className="pb-8">
-            <div className="relative flex w-full pb-8">
-              <div>
+            <div className="relative flex w-full pb-8 cart-product">
+              <div className="image">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -85,11 +85,11 @@ const Cart = () => {
                 />
               </div>
               <div className="flex flex-col justify-between w-full">
-                <p className="w-[80%] pl-12 font-poiret text-[28px] leading-[33px]">
+                <p className="w-[80%] pl-12 font-poiret text-[28px] leading-[33px] title">
                   {product.title}
                 </p>
-                <div className="flex flex-row pl-12">
-                  <p className="w-1/2 font-poiret text-[26px]">
+                <div className="flex flex-row pl-12 summary">
+                  <p className="w-1/2 font-poiret text-[26px] price">
                     ${product.price}
                   </p>
                   <QuantityBlock product={product} />
@@ -99,7 +99,7 @@ const Cart = () => {
                 onClick={() => removeFromCart(product)}
                 className="absolute top-0 right-0 text-customblue hover:text-producttitle"
               >
-                Отменить
+                Delete
               </button>
             </div>
             <ProductLine className="w-full" />

@@ -61,8 +61,8 @@ const Payment = () => {
   };
 
   return (
-    <div className="pt-[54px] pr-[180px] flex space-x-8">
-      <div className="w-1/2 bg-[#F4F6FA] flex flex-col relative">
+    <div className="payment">
+      <div className="w-1/2 bg-[#F4F6FA] flex flex-col relative products">
         {cart.map((product) => (
           <div key={product.id}>
             <div className="py-4">
@@ -94,7 +94,7 @@ const Payment = () => {
           </p>
         </div>
       </div>
-      <div className="w-1/2 flex flex-col space-y-10">
+      <div className="flex flex-col space-y-10 payment-details">
         <p className="font-poiret text-[48px] leading-[56px]">
           Payment and shippment details
         </p>
