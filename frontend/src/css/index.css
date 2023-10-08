@@ -200,7 +200,7 @@ input::placeholder {
   .aboutpage {
     display: flex;
     flex-direction: column;
-    padding: 0 90px 40px;
+    padding: 0 90px 16px;
     
   }
   .aboutpage .description {
@@ -280,12 +280,33 @@ input::placeholder {
     outline            : 0;
     box-shadow         : none;
   }
+  #root {
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+  }
   .nav {
+    height: 50px;
     padding: 0.5rem 2rem;
     font-size: 1.25rem;
   }
   .nav .buttons {
     font-size: 1rem;
+  }
+  main {
+    flex-grow: 1;
+  }
+  .footer {
+    height: 152px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: white;
+    flex-shrink: 0;
+  }
+  .footer-socials {
+    display: none;
   }
 
   .skeleton {
@@ -411,18 +432,6 @@ input::placeholder {
     padding: 0.5rem 1rem;
   }
 
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    font-size: 1rem;
-    background-color: white;
-    flex-shrink: 0;
-  }
-  .footer-socials {
-    display: none;
-  }
-
   .shop-container {
     display: flex;
     flex-direction: row;
@@ -468,7 +477,7 @@ input::placeholder {
   .aboutpage {
     display: flex;
     flex-direction: column;
-    padding: 1rem 2rem 4rem;
+    padding: 1rem 2rem 1rem;
   }
   .aboutpage .description {
     display: flex;
