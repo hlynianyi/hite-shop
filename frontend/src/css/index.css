@@ -10,11 +10,11 @@ input::placeholder {
 
 .number-input::-webkit-inner-spin-button,
 .number-input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 .number-input {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 @media (orientation: landscape) {
@@ -187,7 +187,6 @@ input::placeholder {
   }
 
   .product-container {
-
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;

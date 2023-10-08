@@ -12,7 +12,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [currentSum, setCurrentSum] = useState(0);
   const [quantityByProductId, setQuantityByProductId] = useState({});
-  console.log('cart :>> ', cart);
+  
   useEffect(() => {
     let sum = 0;
     for (let product of cart) {
@@ -23,7 +23,6 @@ const Cart = () => {
   }, [cart, quantityByProductId]);
 
   const removeFromCart = (product) => {
-    toast.success("Product removed from cart.");
     dispatch(actions.removeFromCart(product.id));
   };
 
