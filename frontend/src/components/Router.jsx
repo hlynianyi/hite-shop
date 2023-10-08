@@ -16,15 +16,17 @@ const Router = () => {
     <BrowserRouter>
       <ScrollToTop />
       <NavigationBar />
-      <Routes>
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/error" element={<ErrorPage />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/payment" element={<Payment />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
+        </Routes>
+      </main>
       <Footer />
     </BrowserRouter>
   );
