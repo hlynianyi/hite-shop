@@ -179,6 +179,12 @@ input::placeholder {
     width: 200px;
     padding-right: 24px;
   }
+  .filter-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 64px;
+  }
   .filters-button {
     display: none;
   }
@@ -488,6 +494,12 @@ input::placeholder {
   .filters-container {
     display: none;
   }
+  .filter-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 64px;
+  }
   .filters-button {
     width: 95%; height: 32px;
     padding: 4px 12px;
@@ -517,6 +529,10 @@ input::placeholder {
     justify-content: space-around;
   }
   .product-card {
+    width: 270px;
+    padding-bottom: 32px;
+  }
+  .product-list {
     width: 270px;
     padding-bottom: 32px;
   }
