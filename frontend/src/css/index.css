@@ -185,7 +185,14 @@ input::placeholder {
   .filters-button-close {
     display: none;
   }
-
+  .active-icon {
+    fill: green;
+  }
+  
+  .inactive-icon {
+    fill: grey; 
+  }
+  
   .product-container {
     display: flex;
     flex-wrap: wrap;
@@ -193,8 +200,49 @@ input::placeholder {
   }
   .product-card {
     width: 300px;
-    padding-bottom: 32px;
+    padding: 0 16px 32px;
   }
+  .product-card .item {
+    background-color: white;
+    
+  }
+  .product-card .price {
+    font-size: 1.2rem;
+  }
+  .product-card .title {
+    font-size: 1.2rem;
+  }
+  .product-card .description {
+    display: none;
+  }
+  .product-list {
+    width: 100%;
+    padding: 0 16px 32px;
+  }
+  .product-list .item {
+    border: 0.5px solid lightblue;
+    padding: 0 1rem 1rem;
+    display: flex;
+    justify-content: row;
+  }
+  .product-list .item-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 2rem;
+  }
+  .product-list .price {
+    text-align: end;
+    font-size: 1.5rem;
+  }
+  .product-card .description {
+    font-size: 3rem;
+  }
+  .product-list .title {
+    font-size: 1.5rem;
+  }
+  
 
   .aboutpage {
     display: flex;
@@ -523,9 +571,14 @@ input::placeholder {
     padding-bottom: 0.5rem;
     font-size: 1.4rem;
   }
+  .product-card .description {
+    display: none;
+  }
+  .product-list .description {
+    display: none;
+  }
   .productpage-container .product-price {
     font-size: 1.5rem;
-    
   }
   .productpage-container .product-sold {
     padding-bottom: 1rem;

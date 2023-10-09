@@ -15,6 +15,8 @@ const ProductContainer = () => {
   );
   const allProducts = useSelector(selectors.selectFilteredProducts);
 
+  const [displayType, setDisplayType] = useState("cards");
+
   const [isTypeFilterOpen, setIsTypeFilterOpen] = useState(false);
   const [currentSort, setCurrentSort] = useState("By popularity");
 
@@ -36,6 +38,10 @@ const ProductContainer = () => {
         }
       })
     : allProducts;
+
+  const toggleDisplayType = (type) => {
+    setDisplayType(type);
+  };
 
   const toggleTypeFilter = () => {
     setIsTypeFilterOpen(!isTypeFilterOpen);
@@ -95,19 +101,32 @@ const ProductContainer = () => {
           </div>
         </div>
         <div className="display-variant">
-          <button className="">
-            <Cards />
+          <button className="" onClick={() => toggleDisplayType("cards")}>
+            <Cards
+              className={
+                displayType === "cards" ? "active-icon" : "inactive-icon"
+              }
+            />
           </button>
-          <button className="">
-            <List />
+          <button className="" onClick={() => toggleDisplayType("list")}>
+            <List
+              className={
+                displayType === "list" ? "active-icon" : "inactive-icon"
+              }
+            />
           </button>
         </div>
       </div>
       <div className="product-container -m-4">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="product-card px-4 pb-8">
+          <div
+            key={product.id}
+            className={
+              displayType === "cards" ? "product-card" : "product-list"
+            }
+          >
             <Link to={`/product/${product.id}`}>
-              <div className="bg-white rounded shadow flex flex-col">
+              <div className="item">
                 <div className="flex justify-center pt-4">
                   <img
                     src={product.image}
@@ -115,7 +134,7 @@ const ProductContainer = () => {
                     className="p-0 object-center w-52 h-56"
                   />
                 </div>
-                <div className="p-4">
+                <div className="item-text p-4">
                   <div className="h-16">
                     <ClampLines
                       text={product.title}
@@ -124,10 +143,11 @@ const ProductContainer = () => {
                       ellipsis="..."
                       moreText=""
                       lessText="Show less"
-                      className="font-opensans text-lg"
+                      className="title font-opensans"
                     />
                   </div>
-                  <p className="text-opensans text-customblue text-lg">
+                  <p className="description">{product.description}</p>
+                  <p className="price text-opensans text-customblue">
                     ${product.price}
                   </p>
                 </div>
