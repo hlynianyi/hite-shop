@@ -12,7 +12,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [currentSum, setCurrentSum] = useState(0);
   const [quantityByProductId, setQuantityByProductId] = useState({});
-
+  console.log('c!art :>> ', cart);
   useEffect(() => {
     let sum = 0;
     for (let product of cart) {

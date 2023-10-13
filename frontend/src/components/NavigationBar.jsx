@@ -1,23 +1,23 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ReactComponent as SearchIcon } from "../assets/navbarFind.svg";
 import { ReactComponent as CartIcon } from "../assets/navbarCart.svg";
 import { ReactComponent as FavIcon } from "../assets/navbarFav.svg";
-import { actions } from "../slices/categoriesSlice";
+import { actions, selectors } from "../slices/cartSlice";
 
 const NavigationBar = () => {
   const dispatch = useDispatch();
-
-  const handleSearchClick = () =>
+  const cart = useSelector(selectors.selectAll);
+  const toastIsntCompleted = () =>
     toast.info("This section is not completed yet.");
 
-  const handleFavoriteClick = () =>
-    toast.info("This section is not completed yet.");
+  const cartCount = cart.length;
+  console.log("cartCount :>> ", cartCount, cart);
 
-  const handleShopClick = () => {
-    dispatch(actions.setSelectedCategory(null));
-  };
+  const handleSearchClick = () => toastIsntCompleted();
+  const handleFavoriteClick = () => toastIsntCompleted();
+  const handleShopClick = () => dispatch(actions.setSelectedCategory(null));
 
   return (
     <nav className="nav flex justify-between px-90 py-5">
@@ -44,9 +44,16 @@ const NavigationBar = () => {
         <Link className="button" onClick={handleFavoriteClick}>
           <FavIcon />
         </Link>
-        <Link className="button" to="/cart">
-          <CartIcon />
-        </Link>
+        <div className="relative">
+          <Link className="button " to="/cart">
+            <CartIcon />
+            {cartCount !== 0 ? (
+              <span className="absolute cart-count">{cartCount}</span>
+            ) : (
+              <span></span>
+            )}
+          </Link>
+        </div>
       </div>
     </nav>
   );
