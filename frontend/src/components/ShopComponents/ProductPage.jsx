@@ -6,20 +6,16 @@ import { toast } from "react-toastify";
 import { selectors } from "../../slices/productsSlice";
 import { actions as cartActions } from "../../slices/cartSlice";
 
+const Loading = () => <div className="loading-animation"></div>;
+
 const ProductPage = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const product = useSelector((state) =>
-    selectors.selectById(state, productId)
+  selectors.selectById(state, productId)
   );
-
-  if (!product) {
-    return (
-      <div className="flex justify-center font-poiret text-4xl text-productprice">
-        Loading...
-      </div>
-    );
-  }
+  
+  if (!product) return <Loading />
 
   const addToCart = () => {
     toast.success('Product in the cart.');

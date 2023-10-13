@@ -5,7 +5,7 @@ import Filters from "./Filters";
 import { selectors as productsSelectors } from "../../slices/productsSlice";
 import { selectors as categoriesSelectors } from "../../slices/categoriesSlice";
 
-const Loading = () => <div className="shop-loading"></div>;
+const Loading = () => <div className="loading-animation"></div>;
 
 const Shop = () => {
   const allProducts = useSelector(productsSelectors.selectAll);

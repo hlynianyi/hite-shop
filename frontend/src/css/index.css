@@ -201,13 +201,7 @@ input::placeholder {
     padding: 0.5rem 1rem;
   }
 
-  .shop-container {
-    display: flex;
-    flex-direction: row;
-    padding: 32px 96px;
-    align-items: flex-start;
-  }
-  .shop-loading {
+  .loading-animation {
     position: absolute;
     top: 20%;
     left: 50%;
@@ -217,6 +211,13 @@ input::placeholder {
     border-radius: 50%;
     border-right-color: transparent;
     animation: rot 1s linear infinite;
+  }
+  
+  .shop-container {
+    display: flex;
+    flex-direction: row;
+    padding: 32px 96px;
+    align-items: flex-start;
   }
 
   .filters-container {
@@ -551,14 +552,8 @@ input::placeholder {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
-
-  .shop-container {
-    display: flex;
-    flex-direction: row;
-    padding: 2rem 2rem;
-    align-items: flex-start;
-  }
-  .shop-loading {
+  
+  .loading-animation {
     position: absolute;
     top: 20%;
     left: 50%;
@@ -568,6 +563,13 @@ input::placeholder {
     border-radius: 50%;
     border-right-color: transparent;
     animation: rot 1s linear infinite;
+  }
+
+  .shop-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 2rem;
+    align-items: flex-start;
   }
 
   .filters-container {
