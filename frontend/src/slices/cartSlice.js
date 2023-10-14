@@ -14,7 +14,7 @@ export const cartSlice = createSlice({
       if (state.entities[id]) {
         state.entities[id].quantity += 1;
       } else {
-        console.log(`Item with id ${id} not found in state.entities`);
+        throw new Error(`Item with id ${id} not found in state.entities`);
       }
     },
     decrementQuantity: (state, action) => {

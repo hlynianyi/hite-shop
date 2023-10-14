@@ -4,6 +4,8 @@ import BestProducts from "../MainPageComponents/BestProducts";
 import { ReactComponent as ProductLine } from "../../assets/productLine.svg";
 import { toast } from "react-toastify";
 import { selectors } from "../../slices/productsSlice";
+import { selectors as cartSelectors } from "../../slices/cartSlice";
+
 import { actions as cartActions } from "../../slices/cartSlice";
 
 const Loading = () => <div className="loading-animation"></div>;
@@ -11,15 +13,24 @@ const Loading = () => <div className="loading-animation"></div>;
 const ProductPage = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
+
   const product = useSelector((state) =>
     selectors.selectById(state, productId)
   );
-  
+  const alreadyInCart = useSelector((state) =>
+    cartSelectors.selectById(state, productId)
+  );
+
   const addToCart = () => {
-    toast.success("Product in the cart.");
-    dispatch(cartActions.addToCart({ ...product, quantity: 1 }));
+   
+    if (!alreadyInCart) {
+      toast.success("Product in the cart.");
+      dispatch(cartActions.addToCart({ ...product, quantity: 1 }));
+    } else {
+      toast.warning("Product already added, you can configure in the cart.");
+    }
   };
-  
+
   if (!product) return <Loading />;
 
   return (

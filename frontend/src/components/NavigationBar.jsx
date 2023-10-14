@@ -14,7 +14,6 @@ const NavigationBar = () => {
     (accum, current) => accum + current.quantity,
     0
   );
-  console.log("cartCount :>> ", cartCount, cart);
 
   const toastIsntCompleted = () =>
     toast.info("This section is not completed yet.");
