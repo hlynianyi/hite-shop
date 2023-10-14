@@ -6,66 +6,30 @@ import { ReactComponent as MinusIcon } from "../assets/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../assets/plusIcon.svg";
 import { toast } from "react-toastify";
 import { actions, selectors } from "../slices/cartSlice";
-
+//todo: fix sum display 
 const Cart = () => {
   const cart = useSelector(selectors.selectAll);
   const dispatch = useDispatch();
   const [currentSum, setCurrentSum] = useState(0);
-  const [quantityByProductId, setQuantityByProductId] = useState({});
-  console.log('c!art :>> ', cart);
+
   useEffect(() => {
     let sum = 0;
     for (let product of cart) {
-      const quantity = quantityByProductId[product.id] || 1;
-      sum += product.price * quantity;
+      sum += product.price * product.quantity;
     }
     setCurrentSum(parseFloat(sum.toFixed(1)));
-  }, [cart, quantityByProductId]);
+  }, [cart]);
 
   const removeFromCart = (product) => {
     toast.success("Product removed from cart.");
     dispatch(actions.removeFromCart(product.id));
   };
+  const incrementQuantity = (product) => {
+    dispatch(actions.incrementQuantity({ id: product.id }));
+  };
 
-  const QuantityBlock = ({ product }) => {
-    const quantity = quantityByProductId[product.id] || 1;
-
-    const increment = () => {
-      const newQuantity = quantity + 1;
-      setQuantityByProductId({
-        ...quantityByProductId,
-        [product.id]: newQuantity,
-      });
-    };
-
-    const decrement = () => {
-      if (quantity > 1) {
-        const newQuantity = quantity - 1;
-        setQuantityByProductId({
-          ...quantityByProductId,
-          [product.id]: newQuantity,
-        });
-      }
-    };
-
-    return (
-      <div className="flex justify-between w-1/2">
-        <div className="flex items-center space-x-4">
-          <button onClick={decrement}>
-            <MinusIcon />
-          </button>
-          <p className="font-opensans text-[28px]">{quantity}</p>
-          <button onClick={increment}>
-            <PlusIcon />
-          </button>
-        </div>
-        <div>
-          <p className="font-poiret text-[26px]">
-            ${parseFloat((product.price * quantity).toFixed(1))}
-          </p>
-        </div>
-      </div>
-    );
+  const decrementQuantity = (product) => {
+    dispatch(actions.decrementQuantity({ id: product.id }));
   };
 
   return (
@@ -92,7 +56,27 @@ const Cart = () => {
                   <p className="w-1/2 font-poiret text-[26px] price">
                     ${product.price}
                   </p>
-                  <QuantityBlock product={product} />
+                  <div className="flex justify-between w-1/2">
+                    <div className="flex items-center space-x-4">
+                      <button onClick={() => decrementQuantity(product)}>
+                        <MinusIcon />
+                      </button>
+                      <p className="font-opensans text-[28px]">
+                        {product.quantity}
+                      </p>
+                      <button onClick={() => incrementQuantity(product)}>
+                        <PlusIcon />
+                      </button>
+                    </div>
+                    <div>
+                      <p className="font-poiret text-[26px]">
+                        $
+                        {parseFloat(
+                          (product.price * product.quantity).toFixed(1)
+                        )}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <button

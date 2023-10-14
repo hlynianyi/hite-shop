@@ -3,13 +3,26 @@ import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 const cartAdapter = createEntityAdapter();
 
 const initialState = cartAdapter.getInitialState([]);
-
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     addToCart: cartAdapter.addOne,
     removeFromCart: cartAdapter.removeOne,
+    incrementQuantity: (state, action) => {
+      const { id } = action.payload;
+      if (state.entities[id]) {
+        state.entities[id].quantity += 1;
+      } else {
+        console.log(`Item with id ${id} not found in state.entities`);
+      }
+    },
+    decrementQuantity: (state, action) => {
+      const { id } = action.payload;
+      if (state.entities[id] && state.entities[id].quantity > 1) {
+        state.entities[id].quantity -= 1;
+      }
+    },
     setSelectedCategory: (state, action) => {
       state.selectedCategory = action.payload;
     },

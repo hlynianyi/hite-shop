@@ -9,12 +9,15 @@ import { actions, selectors } from "../slices/cartSlice";
 const NavigationBar = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectors.selectAll);
-  const toastIsntCompleted = () =>
-    toast.info("This section is not completed yet.");
 
-  const cartCount = cart.length;
+  const cartCount = cart.reduce(
+    (accum, current) => accum + current.quantity,
+    0
+  );
   console.log("cartCount :>> ", cartCount, cart);
 
+  const toastIsntCompleted = () =>
+    toast.info("This section is not completed yet.");
   const handleSearchClick = () => toastIsntCompleted();
   const handleFavoriteClick = () => toastIsntCompleted();
   const handleShopClick = () => dispatch(actions.setSelectedCategory(null));

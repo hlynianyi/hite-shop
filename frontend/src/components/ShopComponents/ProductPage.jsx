@@ -12,15 +12,15 @@ const ProductPage = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const product = useSelector((state) =>
-  selectors.selectById(state, productId)
+    selectors.selectById(state, productId)
   );
   
-  if (!product) return <Loading />
-
   const addToCart = () => {
-    toast.success('Product in the cart.');
-    dispatch(cartActions.addToCart(product));
+    toast.success("Product in the cart.");
+    dispatch(cartActions.addToCart({ ...product, quantity: 1 }));
   };
+  
+  if (!product) return <Loading />;
 
   return (
     <div>
