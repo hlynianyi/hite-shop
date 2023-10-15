@@ -11,7 +11,8 @@ import Decimal from "decimal.js";
 const Cart = () => {
   const cart = useSelector(selectors.selectAll);
   const dispatch = useDispatch();
-  const [currentSum, setCurrentSum] = useState(new Decimal(0));
+  const [currentSum, setCurrentSum] = useState(0);
+
   useEffect(() => {
     let sum = new Decimal(0);
     for (let product of cart) {
@@ -31,6 +32,10 @@ const Cart = () => {
   const decrementQuantity = (product) => {
     dispatch(actions.decrementQuantity({ id: product.id }));
   };
+
+  // const handlePayment = () => {
+  //   dispatch(actions.setTotalSum(currentSum));
+  // };
 
   return (
     <div className="flex flex-col px-[96px] cart-container">
@@ -103,6 +108,7 @@ const Cart = () => {
           </p>
           <Link
             to={"/payment"}
+            // onClick={handlePayment}
             className="py-[6px] px-[64px] border rounded-md bg-customblue hover:bg-gray-500 text-[28px] leading-[38px] font-opensans text-white"
           >
             Payment

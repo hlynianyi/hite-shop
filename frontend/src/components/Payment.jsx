@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -8,20 +8,25 @@ import { ReactComponent as VisaIcon } from "../assets/visa.svg";
 import { ReactComponent as MastercardIcon } from "../assets/mastercard.svg";
 import { selectors } from "../slices/cartSlice";
 import { actions } from "../slices/cartSlice";
+import Decimal from "decimal.js";
+
 // todo: пофиксить корректное отображение суммы и кол-ва товаров
 // todo: добавить атрибут нейм или айди к формам инпута
-
 const Payment = () => {
-  const [value, setValue] = useState("");
-  const [isComplete, setIsComplete] = useState(false);
   const dispatch = useDispatch();
   const cart = useSelector(selectors.selectAll);
   const navigate = useNavigate();
+  const [value, setValue] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
+  const [currentSum, setCurrentSum] = useState(0);
 
-  let sum = 0;
-  if (cart.length !== 0) {
-    cart.forEach((product) => (sum += product.price));
-  }
+  useEffect(() => {
+    let sum = new Decimal(0);
+    for (let product of cart) {
+      sum = sum.plus(new Decimal(product.price).times(product.quantity));
+    }
+    setCurrentSum(sum);
+  }, [cart]);
 
   const handleApplePay = () => {
     if (cart.length !== 0) {
@@ -81,6 +86,9 @@ const Payment = () => {
                     {product.title}
                   </p>
                   <div className="flex flex-row justify-end pl-8 pb-12">
+                    <p className="flex justify-start w-1/2 font-opensans text-[21px] leading-[28px]">
+                      {product.quantity} pcs.
+                    </p>
                     <p className="flex justify-center w-1/2 font-opensans text-[21px] leading-[28px]">
                       ${product.price}
                     </p>
@@ -90,9 +98,10 @@ const Payment = () => {
             </div>
           </div>
         ))}
-        <div className="absolute bottom-[15px] right-[20px]">
-          <p className="pb-[15pb] pr-[24px] flex justify-end font-opensans text-[32px] leading-[49px]">
-            Total: ${sum}
+
+        <div className="absolute bottom-[5px] right-[0px]">
+          <p className="pb-[15pb] pr-[24px] flex justify-end font-opensans text-[30px] leading-[40px]">
+            Total: ${currentSum.toFixed(1)}
           </p>
         </div>
       </div>
@@ -104,35 +113,41 @@ const Payment = () => {
           className="pl-4 py-4 border-[1px] border-solid border-black rounded-2xl"
           onInput={handleInput}
           type="text"
-          placeholder="Name *"
+          name="firstname"
+          placeholder="Firstname *"
         />
         <input
           className="pl-4 py-4 border-[1px] border-solid border-black rounded-2xl"
           onInput={handleInput}
           type="text"
+          name="surname"
           placeholder="Surname *"
         />
         <input
           className="pl-4 py-4 border-[1px] border-solid border-black rounded-2xl"
           onInput={handleInput}
           type="text"
+          name="city"
           placeholder="City*"
         />
         <input
           className="pl-4 py-4 border-[1px] border-solid border-black rounded-2xl"
           onInput={handleInput}
           type="text"
+          name="street"
           placeholder="Street *"
         />
         <div className="flex justify-between space-x-8">
           <input
             className="pl-4 py-4 border-[1px] border-solid border-black rounded-2xl w-1/3"
             type="text"
+            name="house"
             placeholder="House *"
           />
           <input
             className="pl-4 py-4 border-[1px] border-solid border-black rounded-2xl w-2/3"
             type="text"
+            name="flat"
             placeholder="Flat *"
           />
         </div>
@@ -148,6 +163,7 @@ const Payment = () => {
         <div className="relative">
           <input
             value={value}
+            name="card"
             onInput={handleCardInput}
             className="w-full py-[24px] px-[80px] number-input bg-gray-200 rounded-2xl text-opensans text-lg"
             type="text"
