@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import BestProducts from "../MainPageComponents/BestProducts";
+import BestProducts from "../HomePage/BestProducts";
 import { ReactComponent as ProductLine } from "../../assets/productLine.svg";
 import { toast } from "react-toastify";
 import { selectors } from "../../slices/productsSlice";
@@ -22,7 +22,6 @@ const ProductPage = () => {
   );
 
   const addToCart = () => {
-   
     if (!alreadyInCart) {
       toast.success("Product in the cart.");
       dispatch(cartActions.addToCart({ ...product, quantity: 1 }));

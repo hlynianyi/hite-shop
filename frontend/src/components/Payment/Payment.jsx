@@ -2,16 +2,14 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { ReactComponent as AppleLogo } from "../assets/apple.svg";
-import { ReactComponent as CardIcon } from "../assets/paymentCardIcon.svg";
-import { ReactComponent as VisaIcon } from "../assets/visa.svg";
-import { ReactComponent as MastercardIcon } from "../assets/mastercard.svg";
-import { selectors } from "../slices/cartSlice";
-import { actions } from "../slices/cartSlice";
+import { ReactComponent as AppleLogo } from "../../assets/apple.svg";
+import { ReactComponent as CardIcon } from "../../assets/paymentCardIcon.svg";
+import { ReactComponent as VisaIcon } from "../../assets/visa.svg";
+import { ReactComponent as MastercardIcon } from "../../assets/mastercard.svg";
+import { selectors } from "../../slices/cartSlice";
+import { actions } from "../../slices/cartSlice";
 import Decimal from "decimal.js";
 
-// todo: пофиксить корректное отображение суммы и кол-ва товаров
-// todo: добавить атрибут нейм или айди к формам инпута
 const Payment = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectors.selectAll);

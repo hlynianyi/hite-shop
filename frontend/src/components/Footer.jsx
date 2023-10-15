@@ -9,22 +9,32 @@ const Footer = () => {
   const handleNotReadyClick = () =>
     toast.info("This section is not completed yet.");
 
+  const handleRedirect = (url) => window.open(url, "_blank");
+
   return (
     <div className="footer">
       <div className="footer-socials flex-col font-poiret">
         <p className="pb-4 font-normal">Hite</p>
-        
+
         <div className="space-x-4 text-lg font-opensans">
           <button onClick={handleNotReadyClick} className="button">
             <FacebookIcon />
           </button>
-          <button onClick={handleNotReadyClick} className="button">
+          <button
+            onClick={() =>
+              handleRedirect("https://www.instagram.com/gtfouthere/")
+            }
+            className="button"
+          >
             <InstagramIcon />
           </button>
           <button onClick={handleNotReadyClick} className="button">
             <YoutubeIcon />
           </button>
-          <button onClick={handleNotReadyClick} className="button">
+          <button
+            onClick={() => handleRedirect("https://t.me/hlynianyi_tg")}
+            className="button"
+          >
             <TelegramIcon />
           </button>
         </div>
@@ -44,7 +54,7 @@ const Footer = () => {
           About
         </Link>
       </div>
-     
+
       <div className="flex-column font-opensans">
         <p className="pb-6">Contact me</p>
         <p>+38 (099) 707-81-64</p>

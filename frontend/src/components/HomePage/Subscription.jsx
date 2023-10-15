@@ -24,6 +24,7 @@ const SubOffer = () => {
           onInput={handleInput}
           className=" text-dark placeholder-gray font-poiret"
           type="email"
+          name="emailInput"
           placeholder="Email"
         />
         <button

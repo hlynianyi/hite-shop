@@ -1,26 +1,20 @@
 import React from "react";
 import Carrousel from "./Carrousel";
 import Categories from "./Categories";
-import Popular from "./Popular";
-import SubOffer from "./SubOffer";
+import PopularProducts from "./PopularProducts";
+import Subscription from "./Subscription";
 import BestProducts from "./BestProducts";
 import Discount from "./Discount";
 
 const Home = () => {
   return (
     <div className="flex flex-col justify-center">
-      {/* Carrousel */}
       <Carrousel />
-      {/* Categories */}
       <Categories />
-      {/* Popular Products */}
-      <Popular />
-      {/* Discount price */}
-      {<Discount />}
-      {/* Best Products */}
+      <PopularProducts />
+      <Discount />
       <BestProducts />
-      {/* Subscribe offer */}
-      <SubOffer />
+      <Subscription />
     </div>
   );
 };

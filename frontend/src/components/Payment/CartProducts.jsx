@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ReactComponent as ProductLine } from "../assets/productLine.svg";
-import { ReactComponent as MinusIcon } from "../assets/minusIcon.svg";
-import { ReactComponent as PlusIcon } from "../assets/plusIcon.svg";
+import { ReactComponent as ProductLine } from "../../assets/productLine.svg";
+import { ReactComponent as MinusIcon } from "../../assets/minusIcon.svg";
+import { ReactComponent as PlusIcon } from "../../assets/plusIcon.svg";
 import { toast } from "react-toastify";
-import { actions, selectors } from "../slices/cartSlice";
+import { actions, selectors } from "../../slices/cartSlice";
 import Decimal from "decimal.js";
 
-const Cart = () => {
-  const cart = useSelector(selectors.selectAll);
+const CartProducts = () => {
   const dispatch = useDispatch();
+  const cart = useSelector(selectors.selectAll);
   const [currentSum, setCurrentSum] = useState(0);
 
   useEffect(() => {
@@ -20,7 +20,6 @@ const Cart = () => {
     }
     setCurrentSum(sum);
   }, [cart]);
-
   const removeFromCart = (product) => {
     toast.success("Product removed from cart.");
     dispatch(actions.removeFromCart(product.id));
@@ -33,15 +32,8 @@ const Cart = () => {
     dispatch(actions.decrementQuantity({ id: product.id }));
   };
 
-  // const handlePayment = () => {
-  //   dispatch(actions.setTotalSum(currentSum));
-  // };
-
   return (
-    <div className="flex flex-col px-[96px] cart-container">
-      <div className="pt-[32px] pb-[24px] text-[48px] leading-[56x] font-poiret cart-title">
-        Cart
-      </div>
+    <div>
       <div className="flex flex-col space-y-8 cart-list">
         {cart.map((product) => (
           <div key={product.id} className="pb-8">
@@ -95,28 +87,29 @@ const Cart = () => {
           </div>
         ))}
       </div>
-      <Link
-        to={"/shop"}
-        className="py-[6px] px-[48px] w-[298px] border rounded-md bg-cartContinue hover:bg-gray-200 text-[26px] leading-[38px] font-opensans text-productprice"
-      >
-        Continue shopping
-      </Link>
-      <div className="flex justify-end">
-        <div className="flex flex-col">
+      <div className="flex">
+        <div className="flex flex-col w-screen pt-8">
           <p className="flex justify-end font-opensans pb-[18px] text-[32px] leading-[49px]">
             Total: ${currentSum.toFixed(1)}
           </p>
-          <Link
-            to={"/payment"}
-            // onClick={handlePayment}
-            className="py-[6px] px-[64px] border rounded-md bg-customblue hover:bg-gray-500 text-[28px] leading-[38px] font-opensans text-white"
-          >
-            Payment
-          </Link>
+          <div className="flex flex-row justify-between">
+            <Link
+              to={"/shop"}
+              className="py-[6px] px-[48px] border rounded-md bg-cartContinue hover:bg-gray-500 hover:text-white text-[26px] leading-[38px] font-opensans text-productprice"
+            >
+              Continue shopping
+            </Link>
+            <Link
+              to={"/payment"}
+              className="py-[6px] px-[64px] border rounded-md bg-customblue hover:bg-gray-500 text-[28px] leading-[38px] font-opensans text-white"
+            >
+              Payment
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default CartProducts;

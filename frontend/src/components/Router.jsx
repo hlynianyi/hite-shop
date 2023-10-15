@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavigationBar from "./NavigationBar.jsx";
 import AboutPage from "./AboutPage.jsx";
 import ErrorPage from "./ErrorPage.jsx";
-import Home from "./MainPageComponents/Home.jsx";
+import Home from "./HomePage/Home.jsx";
 import Footer from "./Footer.jsx";
-import Shop from "./ShopComponents/Shop.jsx";
-import ProductPage from "./ShopComponents/ProductPage.jsx";
+import ShopPage from "./ShopPage/Shop.jsx";
+import ProductPage from "./ShopPage/ProductPage.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
-import Cart from "./Cart.jsx";
-import Payment from "./Payment.jsx";
+import Cart from "./Payment/Cart.jsx";
+import Payment from "./Payment/Payment.jsx";
 
 const Router = () => {
   return (
@@ -20,8 +20,8 @@ const Router = () => {
         <Routes>
           <Route path="/about" element={<AboutPage />} />
           <Route path="/" element={<Home />} />
-          <Route path="/error" element={<ErrorPage />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="*" element={<ErrorPage />} />
+          <Route path="/shop" element={<ShopPage />} />
           <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/payment" element={<Payment />} />
