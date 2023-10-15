@@ -8,7 +8,7 @@ const CartEmpty = () => {
     <div className="flex flex-col items-center text-[1.5rem] font-poiret">
       <p>Seems like you did'nt add anything to the cart yet</p>
       <p className="pb-8">
-        We trully believe that you going to find someone to your taste in our
+        We trully believe that you going to find something to your taste in our
         shop
       </p>
       <Link
