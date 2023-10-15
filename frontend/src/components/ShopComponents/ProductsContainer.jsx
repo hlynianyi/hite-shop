@@ -10,16 +10,14 @@ import { ReactComponent as ChevronDownIcon } from "../../assets/chevronDownIcon.
 
 const ProductContainer = () => {
   const dispatch = useDispatch();
+  const allProducts = useSelector(selectors.selectFilteredProducts);
+  const [displayType, setDisplayType] = useState("list");
+  const [isTypeFilterOpen, setIsTypeFilterOpen] = useState(false);
+  const [currentSort, setCurrentSort] = useState("By popularity");
   const selectedCategory = useSelector(
     (state) => state.categories.selectedCategory
   );
-  const allProducts = useSelector(selectors.selectFilteredProducts);
-
-  const [displayType, setDisplayType] = useState("cards");
-
-  const [isTypeFilterOpen, setIsTypeFilterOpen] = useState(false);
-  const [currentSort, setCurrentSort] = useState("By popularity");
-
+  
   const filteredProducts = selectedCategory
     ? allProducts.filter((p) => {
         switch (selectedCategory) {

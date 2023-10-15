@@ -6,18 +6,18 @@ import { ReactComponent as MinusIcon } from "../assets/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../assets/plusIcon.svg";
 import { toast } from "react-toastify";
 import { actions, selectors } from "../slices/cartSlice";
-//todo: fix sum display 
+import Decimal from "decimal.js";
+
 const Cart = () => {
   const cart = useSelector(selectors.selectAll);
   const dispatch = useDispatch();
-  const [currentSum, setCurrentSum] = useState(0);
-
+  const [currentSum, setCurrentSum] = useState(new Decimal(0));
   useEffect(() => {
-    let sum = 0;
+    let sum = new Decimal(0);
     for (let product of cart) {
-      sum += product.price * product.quantity;
+      sum = sum.plus(new Decimal(product.price).times(product.quantity));
     }
-    setCurrentSum(parseFloat(sum.toFixed(1)));
+    setCurrentSum(sum);
   }, [cart]);
 
   const removeFromCart = (product) => {
@@ -71,8 +71,8 @@ const Cart = () => {
                     <div>
                       <p className="font-poiret text-[26px]">
                         $
-                        {parseFloat(
-                          (product.price * product.quantity).toFixed(1)
+                        {parseFloat(product.price * product.quantity).toFixed(
+                          1
                         )}
                       </p>
                     </div>
@@ -99,7 +99,7 @@ const Cart = () => {
       <div className="flex justify-end">
         <div className="flex flex-col">
           <p className="flex justify-end font-opensans pb-[18px] text-[32px] leading-[49px]">
-            Total: ${currentSum}
+            Total: ${currentSum.toFixed(1)}
           </p>
           <Link
             to={"/payment"}

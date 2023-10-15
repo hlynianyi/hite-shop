@@ -8,6 +8,8 @@ import { ReactComponent as VisaIcon } from "../assets/visa.svg";
 import { ReactComponent as MastercardIcon } from "../assets/mastercard.svg";
 import { selectors } from "../slices/cartSlice";
 import { actions } from "../slices/cartSlice";
+// todo: пофиксить корректное отображение суммы и кол-ва товаров
+// todo: добавить атрибут нейм или айди к формам инпута
 
 const Payment = () => {
   const [value, setValue] = useState("");
