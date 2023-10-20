@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ClampLines from "react-clamp-lines";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { actions, selectors } from "../../slices/productsSlice";
@@ -139,7 +138,9 @@ const ProductContainer = () => {
                       {product.title}
                     </p>
                   </div>
-                  <p className="description font-poiret">{product.description}</p>
+                  <p className="description font-poiret">
+                    {product.description}
+                  </p>
                   <div className="footer-text">
                     <div className="flex flex-row items-center">
                       <StarIcon className="h-6 w-6" />
