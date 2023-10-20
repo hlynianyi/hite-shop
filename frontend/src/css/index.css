@@ -54,11 +54,12 @@ input::placeholder {
   }
   .search-list {
     position: absolute;
-    top: 44px;
+    top: 50px;
     border: 1px solid darkcyan;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     font-size: 1rem;
+    z-index: 10;
   }
   .search-input-wrapper {
     width: 0;
@@ -467,23 +468,25 @@ input::placeholder {
   }
   .search-list {
     position: absolute;
-    z-index: 100;
-    top: 44px;
+    top: 40px;
+    right: 0;
     border: 1px solid darkcyan;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     font-size: 1rem;
+    z-index: 10;
   }
   .search-input-wrapper {
     width: 0;
     overflow: hidden;
   }
   .search-input-wrapper.show {
-    width: 190px;
-    position: absolute;
-    z-index: 100;
+    position: fixed;  
     top: 50px;
     right: 0;
+    width: 40%;
+    height: 100%;
+    z-index: 10;
   } 
   
   .footer {

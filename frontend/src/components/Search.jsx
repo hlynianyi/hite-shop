@@ -33,7 +33,7 @@ export const Search = () => {
     ));
   }, [filteredProducts]);
   return (
-    <div className="">
+    <div className="flex flex-col">
       <input
         className="pl-4 border-[1px] border-solid border-black rounded-xl font-poiret"
         onInput={handleInput}
