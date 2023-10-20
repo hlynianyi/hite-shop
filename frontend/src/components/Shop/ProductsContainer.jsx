@@ -7,17 +7,18 @@ import { ReactComponent as Cards } from "../../assets/productsDisplayType1.svg";
 import { ReactComponent as List } from "../../assets/productsDisplayType2.svg";
 import { ReactComponent as ChevronSideIcon } from "../../assets/chevronSideIcon.svg";
 import { ReactComponent as ChevronDownIcon } from "../../assets/chevronDownIcon.svg";
+import { ReactComponent as StarIcon } from "../../assets/star.svg";
 
 const ProductContainer = () => {
   const dispatch = useDispatch();
   const allProducts = useSelector(selectors.selectFilteredProducts);
-  const [displayType, setDisplayType] = useState("list");
-  const [isTypeFilterOpen, setIsTypeFilterOpen] = useState(false);
-  const [currentSort, setCurrentSort] = useState("By popularity");
   const selectedCategory = useSelector(
     (state) => state.categories.selectedCategory
   );
-  
+  const [displayType, setDisplayType] = useState("list");
+  const [isTypeFilterOpen, setIsTypeFilterOpen] = useState(false);
+  const [currentSort, setCurrentSort] = useState("By popularity");
+
   const filteredProducts = selectedCategory
     ? allProducts.filter((p) => {
         switch (selectedCategory) {
@@ -115,7 +116,7 @@ const ProductContainer = () => {
           </button>
         </div>
       </div>
-      <div className="product-container -m-4">
+      <div className="product-container">
         {filteredProducts.map((product) => (
           <div
             key={product.id}
@@ -125,29 +126,31 @@ const ProductContainer = () => {
           >
             <Link to={`/product/${product.id}`}>
               <div className="item">
-                <div className="flex justify-center pt-4">
+                <div className="flex justify-center pt-4 px-4">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="p-0 object-center w-52 h-56"
+                    className="p-0 object-contain w-52 h-56"
                   />
                 </div>
                 <div className="item-text p-4">
-                  <div className="h-16">
-                    <ClampLines
-                      text={product.title}
-                      id="really-unique-id"
-                      lines={2}
-                      ellipsis="..."
-                      moreText=""
-                      lessText="Show less"
-                      className="title font-opensans"
-                    />
+                  <div className="pb-2 h-16">
+                    <p className="title font-poiret text-clamp">
+                      {product.title}
+                    </p>
                   </div>
-                  <p className="description">{product.description}</p>
-                  <p className="price text-opensans text-customblue">
-                    ${product.price}
-                  </p>
+                  <p className="description font-poiret">{product.description}</p>
+                  <div className="footer-text">
+                    <div className="flex flex-row items-center">
+                      <StarIcon className="h-6 w-6" />
+                      <p className="rating text-poiret text-customblue">
+                        {product.rating.rate}
+                      </p>
+                    </div>
+                    <p className="price text-opensans text-customblue">
+                      ${product.price}
+                    </p>
+                  </div>
                 </div>
               </div>
             </Link>

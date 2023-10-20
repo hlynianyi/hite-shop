@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import BestProducts from "../HomePage/BestProducts";
+import BestProducts from "../Home/BestProducts";
 import { ReactComponent as ProductLine } from "../../assets/productLine.svg";
 import { toast } from "react-toastify";
 import { selectors } from "../../slices/productsSlice";
