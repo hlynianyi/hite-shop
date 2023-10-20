@@ -16,7 +16,7 @@ const BestProducts = () => {
       <div className="section">
         {getPopularProducts().map((product) => (
           <Link className="item" to={`/product/${product.id}`} key={product.id}>
-            <div className="image">
+            <div className="image hover:scale-105 transition-transform duration-300 ease-in-out">
               <img src={product.image} alt={product.title} />
             </div>
             <p className="pt-4 font-poiret truncate">{product.title}</p>

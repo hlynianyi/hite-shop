@@ -31,7 +31,7 @@ const Carrousel = () => {
       infiniteLoop
       showStatus={false}
       showThumbs={false}
-      interval={500000}
+      interval={5000}
     >
       {!randomProducts.length
         ? Array.from({ length: 3 }).map((_, index) => (
