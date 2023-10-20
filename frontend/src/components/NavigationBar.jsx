@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Search } from "./Search";
 import { ReactComponent as SearchIcon } from "../assets/navbarFind.svg";
 import { ReactComponent as CartIcon } from "../assets/navbarCart.svg";
 import { ReactComponent as FavIcon } from "../assets/navbarFav.svg";
 import { actions, selectors } from "../slices/cartSlice";
+import { useState } from "react";
 
 const NavigationBar = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectors.selectAll);
+  const [searchClicked, setSearchClicked] = useState(false);
 
   const cartCount = cart.reduce(
     (accum, current) => accum + current.quantity,
@@ -17,12 +20,13 @@ const NavigationBar = () => {
 
   const toastIsntCompleted = () =>
     toast.info("This section is not completed yet.");
-  const handleSearchClick = () => toastIsntCompleted();
+
+  const handleSearchClick = () => setSearchClicked(!searchClicked);
   const handleFavoriteClick = () => toastIsntCompleted();
   const handleShopClick = () => dispatch(actions.setSelectedCategory(null));
 
   return (
-    <nav className="nav flex justify-between px-90 py-5">
+    <nav className="nav flex justify-between items-center px-90 py-5">
       <div className="font-poiret">
         <Link className="button" to="/">
           HITE
@@ -39,15 +43,18 @@ const NavigationBar = () => {
           ABOUT
         </Link>
       </div>
-      <div className="flex flex-row space-x-4 text-lg font-opensans">
-        <Link className="button" onClick={handleSearchClick}>
+      <div className="flex flex-row items-start space-x-1 text-lg font-opensans">
+        <button className="button" onClick={handleSearchClick}>
           <SearchIcon />
-        </Link>
+        </button>
+        <div className={`search-input-wrapper ${searchClicked ? "show" : ""}`}>
+          {searchClicked && <Search />}
+        </div>
         <Link className="button" onClick={handleFavoriteClick}>
           <FavIcon />
         </Link>
         <div className="relative">
-          <Link className="button " to="/cart">
+          <Link className="button" to="/cart">
             <CartIcon />
             {cartCount !== 0 ? (
               <span className="absolute cart-count">{cartCount}</span>

@@ -44,14 +44,33 @@ input::placeholder {
     flex-direction: column; 
     min-height: 100vh;
   }
-
+  main {
+    flex-grow: 1;
+  }
   .nav {
     height: 64px;
     padding: 0.5rem 6rem;
     font-size: 2rem;
   }
+  .search-list {
+    position: absolute;
+    top: 44px;
+    border: 1px solid darkcyan;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .search-input-wrapper {
+    width: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .search-input-wrapper.show {
+    width: 190px;
+  } 
   .nav .buttons {
     font-size: 1.25rem;
+    margin: 0;
   }
   .nav .button::after {
     content: "";
@@ -82,9 +101,6 @@ input::placeholder {
     font-size: 12px;
     color: #fff;
     background-color: rgb(130 181 209);
-  }
-  main {
-    flex-grow: 1;
   }
 
   .footer {
@@ -265,7 +281,6 @@ input::placeholder {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    /* padding-left: 16px; */
     gap: 6px;
   }
   .product-card {
@@ -420,9 +435,12 @@ input::placeholder {
     flex-direction: column; 
     min-height: 100vh;
   }
+  main {
+    flex-grow: 1;
+  }
   .nav {
     height: 50px;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     font-size: 1.25rem;
   }
   .nav .cart-count {
@@ -446,12 +464,28 @@ input::placeholder {
   .cart-count {
     top: -5;
     right: 0;
-    /* другие стили */
   }
+  .search-list {
+    position: absolute;
+    z-index: 100;
+    top: 44px;
+    border: 1px solid darkcyan;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .search-input-wrapper {
+    width: 0;
+    overflow: hidden;
+  }
+  .search-input-wrapper.show {
+    width: 190px;
+    position: absolute;
+    z-index: 100;
+    top: 50px;
+    right: 0;
+  } 
   
-  main {
-    flex-grow: 1;
-  }
   .footer {
     height: 152px;
     display: flex;
@@ -464,7 +498,6 @@ input::placeholder {
   .footer-socials {
     display: none;
   }
-
   .skeleton {
     height: 270px;
   }
@@ -587,7 +620,6 @@ input::placeholder {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
-  
   .loading-animation {
     position: absolute;
     top: 20%;
