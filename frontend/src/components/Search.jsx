@@ -4,7 +4,6 @@ import { selectors } from "../slices/productsSlice";
 import { ReactComponent as SearchIcon } from "../assets/navbarFind.svg";
 import { Link } from "react-router-dom";
 
-// todo: overflow on hover homepage
 export const Search = () => {
   const products = useSelector(selectors.selectAll);
   const [filteredProducts, setFilteredProducts] = useState([]);
