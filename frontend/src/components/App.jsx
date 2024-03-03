@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { StrictMode, useEffect } from "react";
 import Router from "./Router";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import routes from "../routes";
 import { actions as productsActions } from "../slices/productsSlice";
 import { actions as categoriesActions } from "../slices/categoriesSlice";
+import { AuthProvider } from "../context";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,13 @@ const App = () => {
     fetchInitData();
   }, [dispatch]);
 
-  return <Router />;
+  return (
+    <StrictMode>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
+    </StrictMode>
+  );
 };
 
 export default App;

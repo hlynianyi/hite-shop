@@ -12,11 +12,9 @@ const Shop = () => {
   const categories = useSelector(categoriesSelectors.selectAll);
 
   return (
-    <div>
-      <div className="shop-container">
-        <Filters categories={categories} />
-        {allProducts.length ? <ProductContainer /> : <Loading />}
-      </div>
+    <div className="shop-container">
+      <Filters categories={categories} />
+      {allProducts.length ? <ProductContainer /> : <Loading />}
     </div>
   );
 };

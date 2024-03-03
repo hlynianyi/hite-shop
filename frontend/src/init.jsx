@@ -8,9 +8,7 @@ const init = async () => {
   return (
     <Provider store={store}>
       <App />
-      <ToastContainer 
-        position="bottom-center"
-      />
+      <ToastContainer position="bottom-center" />
     </Provider>
   );
 };
