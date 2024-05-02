@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
   async function initializeUser(user) {
     if (user) {
-      console.log('user :>> ', user);
+      // console.log('user :>> ', user);
       setCurrentUser({ ...user });
       setUserLoggenId(true);
     } else {

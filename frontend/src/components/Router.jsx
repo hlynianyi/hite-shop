@@ -12,12 +12,13 @@ import Cart from "./Payment/Cart.jsx";
 import Payment from "./Payment/Payment.jsx";
 import Login from "./Auth/Login.jsx";
 import Signup from "./Auth/Signup.jsx";
+import UserProfile from "./Auth/UserProfile.jsx";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <NavigationBar />
-      <main>
+      <main className="">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -28,6 +29,7 @@ const Router = () => {
           <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Routes>
       </main>
       <Footer />
