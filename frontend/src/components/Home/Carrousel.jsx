@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { selectors } from "../../slices/productsSlice";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import ClampLines from "react-clamp-lines";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "../../css/carouselStyles.css";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import "../../css/carouselStyles.css";
 
 const Carrousel = () => {
   const products = useSelector(selectors.selectAll);
@@ -20,10 +20,10 @@ const Carrousel = () => {
 
       setRandomProducts(sliced);
     };
-  
+
     getRandomProducts(products);
   }, [products]);
-  
+
   return (
     <Carousel
       className="carousel"
@@ -35,9 +35,30 @@ const Carrousel = () => {
     >
       {!randomProducts.length
         ? Array.from({ length: 3 }).map((_, index) => (
-            <div key={index} className="skeleton">
-              <Skeleton count={10} />
-            </div>
+            <SkeletonTheme
+              key={index}
+              baseColor="#ebebeb"
+              highlightColor="#f5f5f5"
+            >
+              <div style={{ display: "flex", padding: "8px 80px 16px 80px" }}>
+                <div className="w-1/2 p-4 relative">
+                  <h2 className="pb-8">
+                    <Skeleton />
+                  </h2>
+                  <p className="pb-20">
+                    <Skeleton count={4} />
+                  </p>
+                  <div className="absolute bottom-6">
+                    <Skeleton height="46px" width="104px" />
+                  </div>
+                </div>
+
+                <div className="w-1/2 p-4">
+                  <Skeleton height="320px" containerClassName="card-image" />
+                </div>
+                <Skeleton containerClassName="flex-1" />
+              </div>
+            </SkeletonTheme>
           ))
         : randomProducts.map((product) => (
             <div key={product.id} className="content">
@@ -68,7 +89,6 @@ const Carrousel = () => {
               </div>
             </div>
           ))}
-      
     </Carousel>
   );
 };

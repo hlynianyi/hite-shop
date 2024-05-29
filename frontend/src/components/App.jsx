@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect } from "react";
+import React, { useEffect } from "react";
 import Router from "./Router";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -35,11 +35,9 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <StrictMode>
-      <AuthProvider>
-        <Router />
-      </AuthProvider>
-    </StrictMode>
+    <AuthProvider>
+      <Router />
+    </AuthProvider>
   );
 };
 

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import SearchButton from "./SearchButton";
 import { ReactComponent as ProfileIcon } from "../../assets/navbarProfile.svg";
 import CartButton from "./CartButton";
@@ -20,11 +19,7 @@ const LINKS = [
 ];
 
 const NavigationBar = () => {
-  const toastIsntCompleted = () =>
-    toast.info("This section is not completed yet.");
-
-  const handleFavoriteClick = () => toastIsntCompleted();
-  // const handleShopClick = () => dispatch(actions.setSelectedCategory(null));
+  
 
   return (
     <nav className="nav flex justify-between items-center px-90 py-5">
@@ -42,7 +37,7 @@ const NavigationBar = () => {
       </div>
       <div className="flex flex-row items-start space-x-1 text-lg font-opensans">
         <SearchButton />
-        <Link className="button" onClick={handleFavoriteClick}>
+        <Link className="button" to={'/login'}>
           <ProfileIcon />
         </Link>
         <CartButton />
