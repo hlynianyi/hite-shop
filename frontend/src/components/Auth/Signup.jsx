@@ -19,6 +19,7 @@ const Signup = () => {
     if (!isRegistering) {
       setIsRegistering(true);
       await doCreateUserWithEmailAndPassword(email, password);
+      navigate("/");
     }
   };
 

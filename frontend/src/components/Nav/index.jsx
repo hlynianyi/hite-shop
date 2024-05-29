@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/index";
 import SearchButton from "./SearchButton";
-import { ReactComponent as ProfileIcon } from "../../assets/navbarProfile.svg";
 import CartButton from "./CartButton";
+import { ReactComponent as ProfileIcon } from "../../assets/navbarProfile.svg";
 
 const LINKS = [
   {
@@ -19,7 +20,13 @@ const LINKS = [
 ];
 
 const NavigationBar = () => {
-  
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    console.log("currentUser :>> ", currentUser);
+    return currentUser ? navigate("/profile") :  navigate("/login");
+  };
 
   return (
     <nav className="nav flex justify-between items-center px-90 py-5">
@@ -37,9 +44,9 @@ const NavigationBar = () => {
       </div>
       <div className="flex flex-row items-start space-x-1 text-lg font-opensans">
         <SearchButton />
-        <Link className="button" to={'/login'}>
+        <button className="" onClick={handleProfileClick}>
           <ProfileIcon />
-        </Link>
+        </button>
         <CartButton />
       </div>
     </nav>

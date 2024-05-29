@@ -1,25 +1,32 @@
 import React, { useState } from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/index";
 import {
   doSignInWithEmailAndPassword,
   doSignInWithGoogle,
 } from "../../firebase/auth";
-import { useAuth } from "../../context/index";
 
 const Login = () => {
   const { userLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // todo: handle situation if creds are wrong..
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!isSigningIn) {
       setIsSigningIn(true);
-      await doSignInWithEmailAndPassword(email, password);
-      // doSendEmailVerification()
+      doSignInWithEmailAndPassword(email, password).catch((err) => {
+        // throw new Error('Login Error')
+        console.log("err :>> ", err.message, err.code);
+        err.code === 'auth/invalid-credential' ? setErrorMessage('Credentials are wrong, try another') : setErrorMessage('') ;
+        setIsSigningIn(false);
+      });
+      // navigate("/");
     }
   };
 
@@ -30,6 +37,7 @@ const Login = () => {
       doSignInWithGoogle().catch((err) => {
         setIsSigningIn(false);
       });
+      navigate("/");
     }
   };
 
