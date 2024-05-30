@@ -25,12 +25,12 @@ const NavigationBar = () => {
 
   const handleProfileClick = () => {
     console.log("currentUser :>> ", currentUser);
-    return currentUser ? navigate("/profile") :  navigate("/login");
+    return currentUser ? navigate("/profile") : navigate("/login");
   };
 
   return (
     <nav className="nav flex justify-between items-center px-90 py-5">
-      <div className="font-poiret">
+      <div className="mr-2 font-poiret">
         <Link className="button" to="/">
           HITE
         </Link>
@@ -42,7 +42,7 @@ const NavigationBar = () => {
           </Link>
         ))}
       </div>
-      <div className="flex flex-row items-start space-x-1 text-lg font-opensans">
+      <div className="ml-2 flex flex-row items-start space-x-1 text-lg font-opensans">
         <SearchButton />
         <button className="" onClick={handleProfileClick}>
           <ProfileIcon />

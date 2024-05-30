@@ -37,14 +37,11 @@ const SearchButton = () => {
 
   return (
     <div className="flex flex-row space-x-1">
-      <button className="button" onClick={handleSearchClick}>
-        <SearchIcon />
-      </button>
       <div className={`search-input-wrapper ${searchClicked ? "show" : ""}`}>
         {searchClicked && (
           <div className="flex flex-col">
             <input
-              className="pl-4 border-[1px] border-solid border-black rounded-xl font-poiret"
+              className="pl-4 border-[1px] border-customblue border-customblue rounded-xl font-poiret"
               onInput={handleInput}
               type="text"
               name="search"
@@ -56,6 +53,9 @@ const SearchButton = () => {
           </div>
         )}
       </div>
+      <button className="button" onClick={handleSearchClick}>
+        <SearchIcon />
+      </button>
     </div>
   );
 };

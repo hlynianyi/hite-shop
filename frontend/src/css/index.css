@@ -44,6 +44,8 @@ input::placeholder {
   }
   main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   .nav {
     height: 64px;
@@ -52,8 +54,11 @@ input::placeholder {
   }
   .search-list {
     position: absolute;
+    min-width: 170px;
+    margin-right: 100px;
+    overflow-y: auto;
     top: 50px;
-    border: 1px solid darkcyan;
+    border: 1px solid #82b5d1;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     font-size: 1rem;
@@ -65,7 +70,7 @@ input::placeholder {
     transition: all 0.3s ease-in-out;
   }
   .search-input-wrapper.show {
-    width: 190px;
+    width: 170px;
   }
   .nav .buttons {
     font-size: 1.25rem;
@@ -436,6 +441,8 @@ input::placeholder {
   }
   main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   .nav {
     height: 50px;
@@ -468,7 +475,7 @@ input::placeholder {
     position: absolute;
     top: 40px;
     right: 0;
-    border: 1px solid darkcyan;
+    border: 1px solid #82b5d1;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     font-size: 1rem;
@@ -480,11 +487,13 @@ input::placeholder {
   }
   .search-input-wrapper.show {
     position: fixed;
-    top: 50px;
-    right: 0;
-    width: 40%;
+    top: 6%;
+    left: 50%;
+    width: 85%;
+    transform: translate(-50%, 0);
     height: 100%;
     z-index: 10;
+    overflow-y: auto;
   }
 
   .footer {
