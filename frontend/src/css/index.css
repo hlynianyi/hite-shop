@@ -285,10 +285,14 @@ input::placeholder {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    gap: 6px;
+    gap: 4px;
+    justify-content: center;
   }
   .product-card {
-    width: 282px;
+    flex: 1 1 210px;
+    max-width: 305px;
+    min-width: 205px;
+    box-sizing: border-box;
     padding: 0 0px 16px;
   }
   .product-card .item {
@@ -296,6 +300,7 @@ input::placeholder {
   }
   .product-card .title {
     font-size: 1.25rem;
+    text-align: center;
   }
   .product-card .description {
     display: none;

@@ -129,7 +129,7 @@ const ProductContainer = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="p-0 object-contain w-52 h-56 hover:scale-110 transition-transform duration-300 ease-in-out"
+                    className="p-0 object-contain w-62 h-64 hover:scale-110 transition-transform duration-300 ease-in-out"
                   />
                 </div>
                 <div className="item-text p-4">
