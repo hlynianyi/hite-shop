@@ -1,3 +1,6 @@
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { auth } from "../../firebase/firebase";
+
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -12,11 +15,14 @@ import Decimal from "decimal.js";
 
 const Payment = () => {
   const dispatch = useDispatch();
-  const cart = useSelector(selectors.selectAll);
   const navigate = useNavigate();
+  const cart = useSelector(selectors.selectAll);
   const [value, setValue] = useState("");
   const [isComplete, setIsComplete] = useState(false);
   const [currentSum, setCurrentSum] = useState(0);
+
+  const db = getFirestore();
+  const user = auth.currentUser;
 
   useEffect(() => {
     let sum = new Decimal(0);
@@ -26,21 +32,43 @@ const Payment = () => {
     setCurrentSum(sum);
   }, [cart]);
 
-  const handleApplePay = () => {
+  const handleApplePay = async () => {
     if (cart.length !== 0) {
-      toast.success("Thank you for your order!");
-      dispatch(actions.removeAll());
-      navigate("/");
+      try {
+        await addDoc(collection(db, "orders"), {
+          userId: user.uid,
+          items: cart,
+          createdAt: new Date(),
+        });
+        console.log("user.uid :>> ", user.uid);
+        toast.success("Thank you for your order!");
+        dispatch(actions.removeAll());
+        navigate("/");
+      } catch (err) {
+        console.error("Error adding order: ", err);
+        toast.error("Something went wrong with your order.");
+      }
       return;
     }
     toast.info("You have no products in cart :(");
   };
 
-  const handleCardPay = () => {
+  const handleCardPay = async () => {
     if (cart.length !== 0) {
-      toast.success("Thank you for your order!");
-      dispatch(actions.removeAll());
-      navigate("/");
+      try {
+        await addDoc(collection(db, "orders"), {
+          userId: user.uid,
+          items: cart,
+          createdAt: new Date(),
+        });
+        console.log("user.uid :>> ", user.uid);
+        toast.success("Thank you for your order!");
+        dispatch(actions.removeAll());
+        navigate("/");
+      } catch (err) {
+        console.error("Error adding order: ", err);
+        toast.error("Something went wrong with your order.");
+      }
       return;
     }
     toast.info("You have no products in cart :(");

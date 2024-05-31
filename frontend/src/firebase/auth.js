@@ -11,7 +11,6 @@ export const doCreateUserWithEmailAndPassword = async (email, password) => {
 };
 
 export const doSignInWithEmailAndPassword = (email, password) => {
-  console.log('auth :>> ', auth);
   // todo: credentials
   return signInWithEmailAndPassword(auth, email, password);
 };
