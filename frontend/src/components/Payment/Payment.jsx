@@ -40,12 +40,10 @@ const Payment = () => {
           items: cart,
           createdAt: new Date(),
         });
-        console.log("user.uid :>> ", user.uid);
         toast.success("Thank you for your order!");
         dispatch(actions.removeAll());
         navigate("/");
       } catch (err) {
-        console.error("Error adding order: ", err);
         toast.error("Something went wrong with your order.");
       }
       return;

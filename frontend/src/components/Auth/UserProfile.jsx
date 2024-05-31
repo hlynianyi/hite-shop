@@ -18,7 +18,6 @@ const UserProfile = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
-  console.log("UserProfile currentUser :>> ", currentUser.uid);
   const [orders, setOrders] = useState([]);
   const user = auth.currentUser;
   const db = getFirestore();
@@ -36,11 +35,9 @@ const UserProfile = () => {
             id: doc.id,
             ...doc.data(),
           }));
-          console.log("orderList :>> ", ordersList); //
           const usersOrders = ordersList.filter((order) => {
             return order.userId === currentUser.uid;
           });
-          console.log("usersOrders :>> ", usersOrders.reverse());
           setOrders(usersOrders);
         } catch (error) {
           console.error("Error fetching orders: ", error);
@@ -48,7 +45,7 @@ const UserProfile = () => {
       }
     };
     fetchOrders();
-  }, [user, db]);
+  }, [user, db, currentUser.uid]);
 
   const handleSignout = () => {
     doSignOut();

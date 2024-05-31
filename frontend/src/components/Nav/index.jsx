@@ -24,7 +24,6 @@ const NavigationBar = () => {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    console.log("currentUser :>> ", currentUser);
     return currentUser ? navigate("/profile") : navigate("/login");
   };
 
